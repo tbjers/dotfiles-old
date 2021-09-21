@@ -6,7 +6,7 @@ op_latest=1.11.4
 op_email=torgny.bjers@gmail.com
 
 if [ ! "$(command -v chezmoi)" ]; then
-  bin_dir="$HOME/.local/bin"
+  bin_dir="$HOME/bin"
   chezmoi="$bin_dir/chezmoi"
   if [ "$(command -v curl)" ]; then
     sh -c "$(curl -fsSL https://git.io/chezmoi)" -- -b "$bin_dir"
@@ -21,8 +21,8 @@ else
 fi
 
 if [ ! "$(command -v antibody)" ]; then
-  bin_dir="$HOME/.local/bin"
-  chezmoi="$bin_dir/chezmoi"
+  bin_dir="$HOME/bin"
+  antibody="$bin_dir/antibody"
   if [ "$(command -v curl)" ]; then
     sh -c "$(curl -sfL git.io/antibody)" -- -b "$bin_dir"
   elif [ "$(command -v wget)" ]; then
@@ -32,14 +32,14 @@ if [ ! "$(command -v antibody)" ]; then
     exit 1
   fi
 else
-  chezmoi=chezmoi
+  antibody=antibody
 fi
 
-if [[ ! -e $HOME/.local/bin/op ]]; then
+if [[ ! -e $HOME/bin/op ]]; then
   tmpdir=$(mktemp -d)
   curl -L -o ${tmpdir}/op.zip https://cache.agilebits.com/dist/1P/op/pkg/v${op_latest}/op_linux_amd64_v${op_latest}.zip
-  [[ ! -d $HOME/.local/bin ]] && mkdir -p $HOME/.local/bin
-  unzip ${tmpdir}/op.zip -d ${tmpdir} && mv ${tmpdir}/op $HOME/.local/bin
+  [[ ! -d $HOME/bin ]] && mkdir -p $HOME/bin
+  unzip ${tmpdir}/op.zip -d ${tmpdir} && mv ${tmpdir}/op $HOME/bin
   if [ ! -e $HOME/.config/op/config ]; then
     eval $($HOME/bin/op signin bjers.1password.com ${op_email})
   else
