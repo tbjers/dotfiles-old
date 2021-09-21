@@ -20,21 +20,6 @@ else
   chezmoi=chezmoi
 fi
 
-if [ ! "$(command -v antibody)" ]; then
-  bin_dir="$HOME/bin"
-  antibody="$bin_dir/antibody"
-  if [ "$(command -v curl)" ]; then
-    sh -c "$(curl -sfL git.io/antibody)" -- -b "$bin_dir"
-  elif [ "$(command -v wget)" ]; then
-    sh -c "$(wget -qO- https://git.io/antibody)" -- -b "$bin_dir"
-  else
-    echo "To install antibody, you must have curl or wget installed." >&2
-    exit 1
-  fi
-else
-  antibody=antibody
-fi
-
 if [[ ! -e $HOME/bin/op ]]; then
   tmpdir=$(mktemp -d)
   curl -L -o ${tmpdir}/op.zip https://cache.agilebits.com/dist/1P/op/pkg/v${op_latest}/op_linux_amd64_v${op_latest}.zip
@@ -47,9 +32,7 @@ if [[ ! -e $HOME/bin/op ]]; then
   fi
 fi
 
-# POSIX way to get script's dir: https://stackoverflow.com/a/29834779/12156188
-script_dir="$(cd -P -- "$(dirname -- "$(command -v -- "$0")")" && pwd -P)"
 # exec: replace current process with chezmoi init
-PATH=${PATH}:$HOME/bin exec "$chezmoi" init --apply "--source=$script_dir"
+PATH=${PATH}:$HOME/bin exec "$chezmoi" init --apply tbjers/dotfiles
 
 # vim: set ft=sh:

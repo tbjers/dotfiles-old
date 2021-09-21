@@ -7,7 +7,7 @@ green=$(tput setaf 2)
 reset=$(tput sgr0)
 
 if [ ! "$(command -v chezmoi)" ]; then
-  bin_dir="$HOME/.local/bin"
+  bin_dir="$HOME/bin"
   chezmoi="$bin_dir/chezmoi"
 else
   chezmoi=chezmoi
