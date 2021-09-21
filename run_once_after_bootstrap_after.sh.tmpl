@@ -1,0 +1,25 @@
+#!/bin/bash
+
+set -Eeuxo pipefail
+
+red=$(tput setaf 1)
+green=$(tput setaf 2)
+reset=$(tput sgr0)
+
+if [ ! "$(command -v chezmoi)" ]; then
+  bin_dir="$HOME/.local/bin"
+  chezmoi="$bin_dir/chezmoi"
+else
+  chezmoi=chezmoi
+fi
+
+if [ ! -e $HOME/bin/antibody ]; then
+    echo "${green}Installing antibody and creating static plugin list${reset}"
+    curl -sfL git.io/antibody | sh -s - -b $HOME/bin &&
+        chmod +x $HOME/bin/antibody &&
+        $HOME/bin/antibody bundle <{{ .chezmoi.homeDir }}/.zsh_plugins.txt > \
+            {{ .chezmoi.homeDir }}/.zsh_plugins.sh
+fi
+
+echo "${green}Changing from (possible) https to ssh${reset}"
+${chezmoi} git remote set-url origin git@github.com:{{ .chezmoi.username }}/dotfiles
