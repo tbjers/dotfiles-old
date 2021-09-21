@@ -20,6 +20,21 @@ else
   chezmoi=chezmoi
 fi
 
+if [ ! "$(command -v antibody)" ]; then
+  bin_dir="$HOME/.local/bin"
+  chezmoi="$bin_dir/chezmoi"
+  if [ "$(command -v curl)" ]; then
+    sh -c "$(curl -sfL git.io/antibody)" -- -b "$bin_dir"
+  elif [ "$(command -v wget)" ]; then
+    sh -c "$(wget -qO- https://git.io/antibody)" -- -b "$bin_dir"
+  else
+    echo "To install antibody, you must have curl or wget installed." >&2
+    exit 1
+  fi
+else
+  chezmoi=chezmoi
+fi
+
 if [[ ! -e $HOME/.local/bin/op ]]; then
   tmpdir=$(mktemp -d)
   curl -L -o ${tmpdir}/op.zip https://cache.agilebits.com/dist/1P/op/pkg/v${op_latest}/op_linux_amd64_v${op_latest}.zip
