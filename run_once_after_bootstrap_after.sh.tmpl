@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -Eeuxo pipefail
+set -Eeuo pipefail
 
 red=$(tput setaf 1)
 green=$(tput setaf 2)
@@ -23,3 +23,5 @@ fi
 
 echo "${green}Changing from (possible) https to ssh${reset}"
 ${chezmoi} git remote set-url origin git@github.com:{{ .chezmoi.username }}/dotfiles
+
+# vim: set ft=sh:
