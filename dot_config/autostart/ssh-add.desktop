@@ -1,0 +1,5 @@
+[Desktop Entry]
+Exec=ssh-add -q ~/.ssh/keys.private/*
+Name=ssh-add
+Type=Application
+X-KDE-AutostartScript=true

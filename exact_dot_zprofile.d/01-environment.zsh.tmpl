@@ -1,0 +1,38 @@
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_DATA_HOME="${HOME}/.local/share"
+export XDG_CACHE_HOME="${HOME}/.cache"
+
+export TMPDIR="/tmp/${USER}"
+systemctl --user import-environment XDG_CONFIG_HOME XDG_DATA_HOME XDG_CACHE_HOME TMPDIR
+
+# set SSH Variables
+export SSH_AUTH_SOCK=${XDG_RUNTIME_DIR}/ssh-agent.socket
+{{ $ssh_askpass_base := "" }}
+{{ $kssh_askpass_base := "" }}
+{{ if eq .chezmoi.osRelease.id "ubuntu" "debian" }}
+    {{ $ssh_askpass_base = "/usr/lib/openssh" }}
+    {{ $kssh_askpass_base = "/bin" }}
+{{ else if eq .chezmoi.osRelease.id "arch" }}
+    {{ $ssh_askpass_base = "/usr/lib/ssh" }}
+    {{ $kssh_askpass_base = "/usr/bin" }}
+{{ end }}
+expr "$XDG_CURRENT_DESKTOP" : ".*GNOME.*" 1>/dev/null && export SSH_ASKPASS={{ $ssh_askpass_base }}/gnome-ssh-askpass
+expr "$XDG_CURRENT_DESKTOP" : ".*KDE.*" 1>/dev/null && export SSH_ASKPASS={{ $kssh_askpass_base }}/ksshaskpass
+[ -z "$SSH_ASKPASS" ] && export SSH_ASKPASS={{ $ssh_askpass_base }}/x11-ssh-askpass
+# import to systemctl user-environment
+systemctl --user import-environment SSH_AUTH_SOCK SSH_ASKPASS
+
+if command -v "nvim" >/dev/null; then
+    export EDITOR="nvim"
+    export GIT_EDITOR="nvim"
+elif command -v "vim" >/dev/null; then
+    export EDITOR="vim"
+    export GIT_EDITOR="vim"
+fi
+
+export VISUAL='nvim'
+
+export PAGER='less'
+
+# workaround for 1Password messing with wrong locales
+export OP_LOCALE=en_US

@@ -1,0 +1,4 @@
+editor = "nvim"
+shell = "zsh"
+name = "Torgny Bjers"
+email = "torgny.bjers@gmail.com"

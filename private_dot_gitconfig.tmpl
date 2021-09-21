@@ -1,0 +1,49 @@
+[user]
+    name = Torgny Bjers
+    email = {{ .email }}
+    signingkey = {{ .gpgkey }}
+    useConfigOnly = true
+
+[init]
+    defaultBranch = main
+
+[fetch]
+    prune = true
+
+[delta]
+    syntax-theme = gruvbox-dark
+    line-numbers = true
+    side-by-side = true
+
+[interactive]
+    diffFilter = delta --color-only
+
+[commit]
+    gpgsign = true
+
+[tag]
+    forceSignAnnotated = true
+    gpgSign = true
+
+[credential]
+    helper = cache --timeout=3600
+
+[color]
+    ui = auto
+
+[include]
+    path={{ .chezmoi.homeDir }}/.password-store/.gitconfig
+
+[help]
+    autocorrect = 20
+
+[diff "gpg"]
+    textconv = gpg --no-tty --decrypt
+
+[github]
+    user = {{ .chezmoi.username }}
+[gpg]
+    program = gpg2
+
+[includeif "gitdir:~/git/{{ .chezmoi.username }}/"]
+    path = ~/git/{{ .chezmoi.username }}/.gitconfig
