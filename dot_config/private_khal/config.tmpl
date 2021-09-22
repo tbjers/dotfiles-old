@@ -1,0 +1,41 @@
+[calendars]
+
+  [[Personal]]
+  path = "{{- .caldavdir -}}/torgny.bjers@gmail.com/"
+  color = "yellow"
+
+  [[Jill]]
+  path = "{{- .caldavdir -}}/jill.bjers@gmail.com/"
+  color = "light gray"
+  readonly = true
+
+  [[Holidays]]
+  path = "{{- .caldavdir -}}/cln2stbjc4hmgrrcd5i62ua0ctp6utbg5pr2sor1dhimsp31e8n6errfctm6abj3dtmg@virtual/"
+  color = "dark green"
+  readonly = true
+
+  [[Birthdays]]
+  path = "{{- .caldavdir -}}/c5i68sj5edpm4rrfdchm6rreehgm6t3j81jn4rrle0n7cbj3c5m6arj4c5p2sprfdtjmop9ecdnmq@virtual/"
+  color = "dark green"
+  readonly = true
+
+[locale]
+timeformat = "%H:%M"
+dateformat = "%Y-%m-%d"
+longdateformat = "%Y-%m-%d"
+datetimeformat = "%Y-%m-%d %H:%M"
+longdatetimeformat = "%Y-%m-%d %H:%M"
+default_timezone = "US/Eastern"
+local_timezone = "US/Eastern"
+firstweekday = 0
+unicode_symbols = false
+
+[default]
+default_calendar = "Personal"
+
+[highlight_days]
+default_color = ""
+method = "fg"
+
+[view]
+blank_line_before_day = false
