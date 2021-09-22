@@ -6,7 +6,7 @@ export TMPDIR="/tmp/${USER}"
 systemctl --user import-environment XDG_CONFIG_HOME XDG_DATA_HOME XDG_CACHE_HOME TMPDIR
 
 # set SSH Variables
-export SSH_AUTH_SOCK=${XDG_RUNTIME_DIR}/ssh-agent.socket
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 {{ $ssh_askpass_base := "" }}
 {{ $kssh_askpass_base := "" }}
 {{ if eq .chezmoi.osRelease.id "ubuntu" "debian" }}
