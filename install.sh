@@ -2,9 +2,6 @@
 
 set -e # -e: exit on error
 
-op_latest=1.11.4
-op_email=torgny.bjers@gmail.com
-
 if [ ! "$(command -v chezmoi)" ]; then
   bin_dir="$HOME/bin"
   chezmoi="$bin_dir/chezmoi"
