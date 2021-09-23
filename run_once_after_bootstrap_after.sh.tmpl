@@ -6,8 +6,6 @@ red=$(tput setaf 1)
 green=$(tput setaf 2)
 reset=$(tput sgr0)
 
-echo "${green}AFTER BOOTSTRAP${reset}"
-
 if [ ! "$(command -v chezmoi)" ]; then
   bin_dir="$HOME/bin"
   chezmoi="$bin_dir/chezmoi"
