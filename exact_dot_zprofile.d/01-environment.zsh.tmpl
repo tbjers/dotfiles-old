@@ -16,7 +16,7 @@ export SSH_AUTH_SOCK=${XDG_RUNTIME_DIR}/ssh-agent.socket
 {{ if eq .chezmoi.osRelease.id "ubuntu" "debian" }}
     {{ $ssh_askpass_base = "/usr/lib/openssh" }}
     {{ $kssh_askpass_base = "/bin" }}
-{{ else if eq .chezmoi.osRelease.id "arch" }}
+{{ else if eq .chezmoi.osRelease.id "arch" "manjaro" }}
     {{ $ssh_askpass_base = "/usr/lib/ssh" }}
     {{ $kssh_askpass_base = "/usr/bin" }}
 {{ end }}
