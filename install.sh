@@ -20,18 +20,6 @@ else
   chezmoi=chezmoi
 fi
 
-if [[ ! -e $HOME/bin/op ]]; then
-  tmpdir=$(mktemp -d)
-  curl -L -o ${tmpdir}/op.zip https://cache.agilebits.com/dist/1P/op/pkg/v${op_latest}/op_linux_amd64_v${op_latest}.zip
-  [[ ! -d $HOME/bin ]] && mkdir -p $HOME/bin
-  unzip ${tmpdir}/op.zip -d ${tmpdir} && mv ${tmpdir}/op $HOME/bin
-  if [ ! -e $HOME/.config/op/config ]; then
-    eval $($HOME/bin/op signin bjers.1password.com ${op_email})
-  else
-    eval $($HOME/bin/op signin)
-  fi
-fi
-
 # exec: replace current process with chezmoi init
 PATH=${PATH}:$HOME/bin exec "$chezmoi" init --apply tbjers/dotfiles
 
