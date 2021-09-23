@@ -2,7 +2,7 @@ robbyrussell/oh-my-zsh
 
 {{ if eq .chezmoi.osRelease.id "ubuntu" }}
 robbyrussell/oh-my-zsh path:plugins/ubuntu
-{ else if eq .chezmoi.osRelease.id "arch" }}
+{ else if eq .chezmoi.osRelease.id "arch" "manjaro" }}
 robbyrussell/oh-my-zsh path:plugins/archlinux
 {{ end }}
 
