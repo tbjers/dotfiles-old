@@ -3,7 +3,18 @@ alias ll="ls -l"
 alias l=ll
 alias la="ls -lsAX"
 alias vim="nvim"
-alias git="noglob git"
 alias g="git"
 alias cz="chezmoi"
 alias czg="chezmoi git"
+
+alias ip="ip --color=auto"
+
+if (( $+commands[nvim] )); then
+    alias vim=nvim
+fi
+
+if (( $+commands[gpg2] )); then
+    alias gpg=gpg2
+fi
+
+alias git="noglob git"
