@@ -26,4 +26,7 @@ fi
 echo "${green}Changing from (possible) https to ssh${reset}"
 ${chezmoi} git remote set-url origin git@github.com:{{ .chezmoi.username }}/dotfiles
 
+echo "${green}Enabling all user services/sockets/timers${reset}"
+systemctl --user enable --now ~/.config/systemd/user/*
+
 # vim: set ft=sh:
