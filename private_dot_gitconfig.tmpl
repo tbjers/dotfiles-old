@@ -1,5 +1,5 @@
 [user]
-    name = Torgny Bjers
+    name = {{ .name }}
     email = {{ .email }}
     signingkey = {{ .gpgkey }}
     useConfigOnly = true
@@ -32,7 +32,6 @@
     ui = auto
 
 [include]
-    path={{ .chezmoi.homeDir }}/.password-store/.gitconfig
     path={{ .chezmoi.homeDir }}/.gitinclude
 
 [help]
@@ -48,3 +47,5 @@
 
 [includeif "gitdir:~/git/{{ .chezmoi.username }}/"]
     path = ~/git/{{ .chezmoi.username }}/.gitconfig
+
+# vim: set ft=gitconfig:
