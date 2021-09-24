@@ -18,6 +18,14 @@ else
   chezmoi=chezmoi
 fi
 
+# import and trust our GPG Key
+GPGKEY=F189ABC3C4117523
+GPGKEY_FINGERPRINT=E8A5374D7945C91F1AE5E98CF189ABC3C4117523
+gpg --keyserver keyserver.ubuntu.com --receive-keys ${GPGKEY}
+echo -e "5\ny\n" | gpg --command-fd 0 --expert --edit-key ${GPGKEY_FINGERPRINT} trust
+# power up yubikey
+gpg --card-status
+
 # exec: replace current process with chezmoi init
 PATH=${PATH}:$HOME/bin exec "$chezmoi" init --apply tbjers/dotfiles
 

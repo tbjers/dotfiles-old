@@ -11,6 +11,8 @@ no-grab
 no-allow-external-cache
 # don't user cache when signing shit
 #ignore-cache-for-signing
+# Enable SSH agent support
+enable-ssh-support
 
 {{- if eq .wm "kde" }}
 pinentry-program /usr/bin/pinentry-kwallet

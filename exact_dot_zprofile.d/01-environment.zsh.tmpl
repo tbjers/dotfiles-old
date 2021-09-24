@@ -10,7 +10,7 @@ systemctl --user import-environment XDG_CONFIG_HOME XDG_DATA_HOME XDG_CACHE_HOME
 expr "$XDG_CURRENT_DESKTOP" : ".*\(KDE\|GNOME\).*" 1>/dev/null || export QT_QPA_PLATFORMTHEME="qt5ct"
 
 # set SSH Variables
-export SSH_AUTH_SOCK=${XDG_RUNTIME_DIR}/ssh-agent.socket
+export SSH_AUTH_SOCK=${XDG_RUNTIME_DIR}/gpg-agent.socket
 {{ $ssh_askpass_base := "" }}
 {{ $kssh_askpass_base := "" }}
 {{ if eq .chezmoi.osRelease.id "ubuntu" "debian" }}
@@ -57,3 +57,5 @@ export BLOCK_SIZE="'1"
 
 # workaround for 1Password messing with wrong locales
 export OP_LOCALE=en_US
+
+# vim: set ft=zsh:
