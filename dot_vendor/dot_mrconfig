@@ -1,0 +1,16 @@
+[DEFAULT]
+jobs = 5
+
+[asdf]
+checkout = git clone --depth=1 https://github.com/asdf-vm/asdf.git 'asdf'
+
+[diff-so-fancy]
+checkout = git clone --depth=1 'https://github.com/so-fancy/diff-so-fancy.git' 'diff-so-fancy'
+
+[gruvbox-contrib]
+checkout = git clone --depth=1 https://github.com/gruvbox-community/gruvbox-contrib 'gruvbox-contrib'
+
+[gruvboxplasma]
+checkout = git clone --depth=1 https://www.opencode.net/adhe/gruvboxplasma.git 'gruvboxplasma'
+
+# vim: ft=dosini
