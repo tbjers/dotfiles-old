@@ -28,6 +28,13 @@ echo "${green}Copying icons${reset}"
 mkdir -p $HOME/.local/share/icons
 cp -r $HOME/.vendor/gruvboxplasma/icons/Gruvbox $HOME/.local/share/icons/
 
+echo "${green}Installing 1password${reset}"
+curl -sS https://downloads.1password.com/linux/keys/1password.asc | gpg --import
+CUR_DIR=$(pwd)
+cd $HOME/.vendor/1password
+makepkg -si --noconfirm
+cd "${CUR_DIR}"
+
 echo "${green}Install asdf plugins${reset}"
 . $HOME/.vendor/asdf/asdf.sh
 asdf plugin list | grep -q "^golang$" || asdf plugin-add golang https://github.com/kennyp/asdf-golang.git
@@ -37,6 +44,8 @@ echo "${green}Enabling all user services/sockets/timers${reset}"
 systemctl --user enable --now ~/.config/systemd/user/*.service
 systemctl --user enable --now ~/.config/systemd/user/*.socket
 systemctl --user enable --now ~/.config/systemd/user/*.timer
+
+rmdir ~/Documents/ ~/Pictures/ ~/Public/ ~/Videos/ &>/dev/null || true
 
 echo "${green}Changing from (possible) https to ssh${reset}"
 ${chezmoi} git remote set-url origin git@github.com:{{ .chezmoi.username }}/dotfiles

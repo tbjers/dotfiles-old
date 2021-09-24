@@ -13,4 +13,7 @@ checkout = git clone --depth=1 https://github.com/gruvbox-community/gruvbox-cont
 [gruvboxplasma]
 checkout = git clone --depth=1 https://www.opencode.net/adhe/gruvboxplasma.git 'gruvboxplasma'
 
+[1password]
+checkout = git clone --depth=1 https://aur.archlinux.org/1password.git
+
 # vim: ft=dosini

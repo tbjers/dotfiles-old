@@ -1,7 +1,7 @@
 caldavdir = "~/.local/share/vdirsyncer/caldav"
 editor = "nvim"
 email = "torgny.bjers@gmail.com"
-gpgkey = "6AA80D1F9E75594A9C1BCFE215B53F48CECB02C4"
+gpgkey = "7842C3B9B158DCBB309E5DE1D38662008C8CD717"
 loginmanager = "true"
 name = "Torgny Bjers"
 shell = "zsh"
