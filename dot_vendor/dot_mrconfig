@@ -2,18 +2,24 @@
 jobs = 5
 
 [asdf]
-checkout = git clone --depth=1 https://github.com/asdf-vm/asdf.git 'asdf'
+checkout = git clone --depth=1 'https://github.com/asdf-vm/asdf.git' 'asdf'
 
 [diff-so-fancy]
 checkout = git clone --depth=1 'https://github.com/so-fancy/diff-so-fancy.git' 'diff-so-fancy'
 
 [gruvbox-contrib]
-checkout = git clone --depth=1 https://github.com/gruvbox-community/gruvbox-contrib 'gruvbox-contrib'
+checkout = git clone --depth=1 'https://github.com/gruvbox-community/gruvbox-contrib' 'gruvbox-contrib'
 
 [gruvboxplasma]
-checkout = git clone --depth=1 https://www.opencode.net/adhe/gruvboxplasma.git 'gruvboxplasma'
+checkout = git clone --depth=1 'https://www.opencode.net/adhe/gruvboxplasma.git' 'gruvboxplasma'
 
 [1password]
-checkout = git clone --depth=1 https://aur.archlinux.org/1password.git
+checkout = git clone --depth=1 'https://aur.archlinux.org/1password.git'
+
+[tomb]
+checkout = git clone --depth=1 --branch 'v2.9' 'https://github.com/dyne/Tomb.git' 'tomb'
+
+[gogh]
+checkout = git clone --depth=1 'https://github.com/Mayccoll/Gogh.git' 'gogh'
 
 # vim: ft=dosini

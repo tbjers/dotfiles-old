@@ -70,6 +70,7 @@ map('n', '<C-n>', ':NERDTree<CR>', {noremap=true})
 map('n', '<C-t>', ':NERDTreeToggle<CR>', {noremap=true})
 map('n', '<C-f>', ':NERDTreeFind<CR>', {noremap=true})
 vim.g['NERDTreeGitStatusUseNerdFonts'] = 1 -- you should install nerdfonts by yourself. default: 0
+vim.g['NERDTreeQuitOnOpen'] = 1
 
 -- NERDTree stuff not supported by LUA, yet...
 vim.cmd 'source ~/.config/nvim/NERDTree.vim'
@@ -83,6 +84,12 @@ vim.g['netrw_winsize'] = 25
 
 -- Editorconfig/Fugitive
 vim.g['EditorConfig_exclude_patterns'] = {'fugitive://.*', 'scp://.*'}
+
+-- General keymappings
+map('n', '<Leader>w', ':bw<CR>', {noremap=true})
+map('n', '<C-^>', ':bn<CR>', {noremap=true})
+map('n', '<C-s>', ':update', {noremap=true})
+map('n', '<Leader>l', ':set list!<CR>', {noremap})
 
 -- Apply Theme
 vim.cmd 'colo gruvbox-material'
