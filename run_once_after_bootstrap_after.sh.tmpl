@@ -28,22 +28,26 @@ echo "${green}Copying icons${reset}"
 mkdir -p $HOME/.local/share/icons
 cp -r $HOME/.vendor/gruvboxplasma/icons/Gruvbox $HOME/.local/share/icons/
 
-echo "${green}Installing 1password${reset}"
-curl -sS https://downloads.1password.com/linux/keys/1password.asc | gpg --import
-CUR_DIR=$(pwd)
-cd $HOME/.vendor/1password
-makepkg -si --noconfirm
-cd "${CUR_DIR}"
+if [ ! -e /usr/bin/1password ]; then
+    echo "${green}Installing 1password${reset}"
+    curl -sS https://downloads.1password.com/linux/keys/1password.asc | gpg --import
+    CUR_DIR=$(pwd)
+    cd $HOME/.vendor/1password
+    makepkg -si --noconfirm
+    cd "${CUR_DIR}"
+fi
 
 echo "${green}Install asdf plugins${reset}"
 . $HOME/.vendor/asdf/asdf.sh
 asdf plugin list | grep -q "^golang$" || asdf plugin-add golang https://github.com/kennyp/asdf-golang.git
 asdf plugin list | grep -q "^python$" || asdf plugin-add python https://github.com/danhper/asdf-python.git
 
-echo "${green}Enabling all user services/sockets/timers${reset}"
-systemctl --user enable --now ~/.config/systemd/user/*.service
-systemctl --user enable --now ~/.config/systemd/user/*.socket
-systemctl --user enable --now ~/.config/systemd/user/*.timer
+echo "${green}Enabling all user services${reset}"
+systemctl --user enable ~/.config/systemd/user/yubikey-touch-detector.service
+echo "${green}Enabling all user sockets${reset}"
+systemctl --user enable ~/.config/systemd/user/*.socket
+echo "${green}Enabling all user timers${reset}"
+systemctl --user enable ~/.config/systemd/user/*.timer
 
 rmdir ~/Documents/ ~/Pictures/ ~/Public/ ~/Videos/ &>/dev/null || true
 
