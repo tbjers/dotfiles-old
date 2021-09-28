@@ -11,15 +11,15 @@ expr "$XDG_CURRENT_DESKTOP" : ".*\(KDE\|GNOME\).*" 1>/dev/null || export QT_QPA_
 
 # set SSH Variables
 export SSH_AUTH_SOCK=${XDG_RUNTIME_DIR}/gpg-agent.socket
-{{ $ssh_askpass_base := "" }}
-{{ $kssh_askpass_base := "" }}
-{{ if eq .chezmoi.osRelease.id "ubuntu" "debian" }}
-    {{ $ssh_askpass_base = "/usr/lib/openssh" }}
-    {{ $kssh_askpass_base = "/bin" }}
-{{ else if eq .chezmoi.osRelease.id "arch" "manjaro" }}
-    {{ $ssh_askpass_base = "/usr/lib/ssh" }}
-    {{ $kssh_askpass_base = "/usr/bin" }}
-{{ end }}
+{{- $ssh_askpass_base := "" -}}
+{{- $kssh_askpass_base := "" -}}
+{{- if eq .chezmoi.osRelease.id "ubuntu" "debian" -}}
+    {{- $ssh_askpass_base = "/usr/lib/openssh" -}}
+    {{- $kssh_askpass_base = "/bin" -}}
+{{- else if eq .chezmoi.osRelease.id "arch" "manjaro" -}}
+    {{- $ssh_askpass_base = "/usr/lib/ssh" -}}
+    {{- $kssh_askpass_base = "/usr/bin" -}}
+{{- end }}
 expr "$XDG_CURRENT_DESKTOP" : ".*GNOME.*" 1>/dev/null && export SSH_ASKPASS={{ $ssh_askpass_base }}/gnome-ssh-askpass
 expr "$XDG_CURRENT_DESKTOP" : ".*KDE.*" 1>/dev/null && export SSH_ASKPASS={{ $kssh_askpass_base }}/ksshaskpass
 # import to systemctl user-environment
@@ -54,8 +54,5 @@ export LESS='-F -i -M -R -S -w -X -z-4'
 # ls options
 export TIME_STYLE=long-iso
 export BLOCK_SIZE="'1"
-
-# workaround for 1Password messing with wrong locales
-export OP_LOCALE=en_US
 
 # vim: set ft=zsh:
