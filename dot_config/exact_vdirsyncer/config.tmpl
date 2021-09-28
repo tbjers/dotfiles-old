@@ -11,8 +11,8 @@ metadata = ["color"]
 [storage personal]
 type = "google_calendar"
 token_file = "~/.local/share/vdirsyncer/google_calendar_token"
-client_id.fetch = ["command", "kwallet-query", "-f", "vdirsyncer", "-r", "client_id", "kdewallet"]
-client_secret.fetch = ["command", "kwallet-query", "-f", "vdirsyncer", "-r", "client_secret", "kdewallet"]
+client_id.fetch = ["command", "kwalletcli", "-f", "vdirsyncer", "-e", "client_id"]
+client_secret.fetch = ["command", "kwalletcli", "-f", "vdirsyncer", "-e", "client_secret"]
 
 [storage personallocal]
 type = "filesystem"
