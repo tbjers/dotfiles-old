@@ -66,7 +66,7 @@ immutability=1
 plugin=org.kde.plasma.kicker
 
 [Containments][1][Applets][33][Configuration]
-PreloadWeight=89
+PreloadWeight=92
 
 [Containments][1][Applets][33][Configuration][General]
 favoritesPortedToKAstats=true
@@ -101,7 +101,7 @@ immutability=1
 plugin=org.kde.plasma.systemtray
 
 [Containments][1][Applets][7][Configuration]
-PreloadWeight=6
+PreloadWeight=3
 SystrayContainmentId=8
 
 [Containments][1][Applets][7][Configuration][Containments][8]
