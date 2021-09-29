@@ -24,10 +24,6 @@ fi
 echo "${green}Updating vendor dependencies${reset}"
 mr -c $HOME/.vendor/.mrconfig update
 
-echo "${green}Copying icons${reset}"
-mkdir -p $HOME/.local/share/icons
-cp -r $HOME/.vendor/gruvboxplasma/icons/Gruvbox $HOME/.local/share/icons/
-
 echo "${green}Copying Oomox Gruvbox configs${reset}"
 mkdir -p $HOME/.config/oomox/colors
 returnDir="$(pwd)"
