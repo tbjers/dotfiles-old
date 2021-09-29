@@ -14,6 +14,7 @@ TerminalMargin=0
 
 [Scrolling]
 HistorySize=9800
+ScrollBarPosition=2
 
 [Terminal Features]
 BellMode=3
