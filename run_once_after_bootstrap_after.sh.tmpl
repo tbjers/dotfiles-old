@@ -52,6 +52,9 @@ systemctl --user enable ~/.config/systemd/user/*.socket
 echo "${green}Enabling all user timers${reset}"
 systemctl --user enable ~/.config/systemd/user/*.timer
 
+echo "${green}Updating hard-coded icons${reset}"
+sudo hardcode-tray --apply --theme "Papirus-Dark" --change-color "#dfdfdf #ebdbb2" "#4285f4 #3c3836"
+
 rmdir ~/Documents/ ~/Pictures/ ~/Public/ ~/Videos/ &>/dev/null || true
 
 echo "${green}Changing from (possible) https to ssh${reset}"
