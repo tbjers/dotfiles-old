@@ -1,5 +1,5 @@
 [Appearance]
-ColorScheme=Gruvbox_dark
+ColorScheme=Gruvbox
 TabColor=24,25,29,0
 
 [General]
