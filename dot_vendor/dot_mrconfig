@@ -13,6 +13,9 @@ checkout = git clone --depth=1 'https://github.com/gruvbox-community/gruvbox-con
 [gruvboxplasma]
 checkout = git clone --depth=1 'https://www.opencode.net/adhe/gruvboxplasma.git' 'gruvboxplasma'
 
+[gruvmox-colors]
+checkout = git clone --depth=1 'https://github.com/tbjers/gruvmox-colors.git' 'gruvmox-colors'
+
 [1password]
 checkout = git clone --depth=1 'https://aur.archlinux.org/1password.git'
 

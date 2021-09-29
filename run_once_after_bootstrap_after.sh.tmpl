@@ -28,6 +28,13 @@ echo "${green}Copying icons${reset}"
 mkdir -p $HOME/.local/share/icons
 cp -r $HOME/.vendor/gruvboxplasma/icons/Gruvbox $HOME/.local/share/icons/
 
+echo "${green}Copying Oomox Gruvbox configs${reset}"
+mkdir -p $HOME/.config/oomox/colors
+returnDir="$(pwd)"
+cd $HOME/.vendor/gruvmox-colors/src
+./generate
+cd "${returnDir}"
+
 if [ ! -e /usr/bin/1password ]; then
     echo "${green}Installing 1password${reset}"
     curl -sS https://downloads.1password.com/linux/keys/1password.asc | gpg --import
