@@ -2,6 +2,10 @@
 
 set -Eeuo pipefail
 
+nwjs_version="v0.57.0"
+nwjs_url="https://dl.nwjs.io/${nwjs_version}/nwjs-sdk-${nwjs_version}-linux-x64.tar.gz"
+nwjs_home=$HOME/Tools/nwjs
+
 red=$(tput setaf 1)
 green=$(tput setaf 2)
 reset=$(tput sgr0)
@@ -21,10 +25,10 @@ if [ ! -e $HOME/bin/antibody ]; then
             {{ .chezmoi.homeDir }}/.zsh_plugins.sh
 fi
 
-if [ ! -d $HOME/Tools/nwjs ]; then
-    echo "${green}Installing NWJS${reset}"
-    mkdir $HOME/Tools
-    curl -sfL "https://dl.nwjs.io/v0.57.0/nwjs-sdk-v0.57.0-linux-x64.tar.gz" | tar -xzf - -C $HOME/Tools/nwjs
+if [ ! -d "${nwjs_home}" ]; then
+  echo "${green}Installing nwjs ${nwjs_version}${reset}"
+  nwjs_dir="$HOME/Tools/nwjs-sdk-${nwjs_version}-linux-x64"
+  curl -sfL "${nwjs_url}" | tar -xzf - -C $(dirname $nwjs_home) && mv "${nwjs_dir}" "${nwjs_home}"
 fi
 
 echo "${green}Updating vendor dependencies${reset}"
