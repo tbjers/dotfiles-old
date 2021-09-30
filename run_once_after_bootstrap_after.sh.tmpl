@@ -21,6 +21,12 @@ if [ ! -e $HOME/bin/antibody ]; then
             {{ .chezmoi.homeDir }}/.zsh_plugins.sh
 fi
 
+if [ ! -d $HOME/Tools/nwjs ]; then
+    echo "${green}Installing NWJS${reset}"
+    mkdir $HOME/Tools
+    curl -sfL "https://dl.nwjs.io/v0.57.0/nwjs-sdk-v0.57.0-linux-x64.tar.gz" | tar -xzf - -C $HOME/Tools/nwjs
+fi
+
 echo "${green}Updating vendor dependencies${reset}"
 mr -c $HOME/.vendor/.mrconfig update
 
