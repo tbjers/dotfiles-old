@@ -1,4 +1,6 @@
 encryption = "gpg"
+format = "json"
+color = "off"
 
 [gpg]
     recipient = "7842C3B9B158DCBB309E5DE1D38662008C8CD717"
@@ -7,3 +9,9 @@ encryption = "gpg"
 [merge]
     command = "nvim"
     args = "-d"
+
+[diff]
+    args = "-u"
+    pager = "diff-so-fancy | less --tabs=4 -RFX"
+
+# vim: set ft=toml:

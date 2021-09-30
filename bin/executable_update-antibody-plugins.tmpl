@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+antibody bundle < {{ .chezmoi.homeDir }}/.zsh_plugins.txt >! {{ .chezmoi.homeDir }}/.zsh_plugins.sh
+
+# vim: set ft=zsh:
