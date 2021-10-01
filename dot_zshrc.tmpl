@@ -38,4 +38,6 @@ FPATH={{ .chezmoi.homeDir}}/.zsh_completions.d:$FPATH
 autoload -Uz compinit
 compinit
 
+source {{ .chezmoi.homeDir }}/.vendor/asdf/asdf.sh
+
 # vim: ft=sh
