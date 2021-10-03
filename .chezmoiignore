@@ -2,6 +2,7 @@ README.md
 LICENSE
 modified_externally
 install.sh
+patches
 
 {{- $wants_ssh_keys := list "" }}
 {{- if not (has .chezmoi.hostname $wants_ssh_keys) }}

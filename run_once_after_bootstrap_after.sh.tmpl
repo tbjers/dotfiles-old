@@ -61,16 +61,23 @@ asdf plugin list | grep -q "^shellcheck$" || asdf plugin-add shellcheck
 asdf plugin list | grep -q "^snyk$" || asdf plugin-add snyk
 
 echo "${green}Enabling all user services${reset}"
-systemctl --user enable ~/.config/systemd/user/yubikey-touch-detector.service
+systemctl --user enable ~/.config/systemd/user/yubikey-touch-detector.service &>/dev/null || true
 echo "${green}Enabling all user sockets${reset}"
-systemctl --user enable ~/.config/systemd/user/*.socket
+systemctl --user enable ~/.config/systemd/user/*.socket &>/dev/null || true
 echo "${green}Enabling all user timers${reset}"
-systemctl --user enable ~/.config/systemd/user/*.timer
+systemctl --user enable ~/.config/systemd/user/*.timer &>/dev/null || true
 
 echo "${green}Updating hard-coded icons${reset}"
-sudo hardcode-tray --apply --theme "Papirus-Dark" --change-color "#dfdfdf #ebdbb2" "#4285f4 #3c3836"
+sudo hardcode-tray --apply --theme "Papirus-Dark" --change-color "#dfdfdf #ebdbb2" "#4285f4 #3c3836" &>/dev/null || true
 
+echo "${green}Cleaning empty media directories${reset}"
 rmdir ~/Documents/ ~/Pictures/ ~/Public/ ~/Videos/ &>/dev/null || true
+
+echo "${green}Installing pam_u2f.so in pam.d/system-auth${reset}"
+cat {{ .chezmoi.sourceDir }}/patches/pam_d_system_auth-patch.diff.tmpl | exec ${chezmoi} execute-template | sudo patch --force --silent --reject-file=- --forward /etc/pam.d/system-auth &>/dev/null || true
+
+echo "${green}Installing pam_u2f.so in pam.d/sudo${reset}"
+cat {{ .chezmoi.sourceDir }}/patches/pam_d_sudo-patch.diff.tmpl | exec ${chezmoi} execute-template | sudo patch --force --silent --reject-file=- --forward /etc/pam.d/sudo &>/dev/null || true
 
 echo "${green}Changing from (possible) https to ssh${reset}"
 ${chezmoi} git remote set-url origin git@github.com:{{ .chezmoi.username }}/dotfiles

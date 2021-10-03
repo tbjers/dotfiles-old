@@ -1,0 +1,11 @@
+--- system-auth-default	2021-10-02 23:07:34.993459273 -0600
++++ system-auth	2021-10-02 23:07:44.723445078 -0600
+@@ -6,6 +6,8 @@
+ auth       [success=2 default=ignore]  pam_unix.so          try_first_pass nullok
+ -auth      [success=1 default=ignore]  pam_systemd_home.so
+ auth       [default=die]               pam_faillock.so      authfail
++# Utilize security key for 2FA
++auth       required                    pam_u2f.so           nouserok cue [cue_prompt=Touch security key...] origin=pam://{{ .chezmoi.hostname }} appid=pam://{{ .chezmoi.hostname }}
+ auth       optional                    pam_permit.so
+ auth       required                    pam_env.so
+ auth       required                    pam_faillock.so      authsucc
