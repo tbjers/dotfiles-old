@@ -3,6 +3,8 @@ set folder = ~/mail
 set mbox_type = Maildir
 set spoolfile = +Inbox
 
+set imap_check_subscribed
+
 set header_cache = $XDG_CACHE_HOME/mutt/headers
 set message_cachedir = $XDG_CACHE_HOME/mutt/bodies
 set mailcap_path = $XDG_CONFIG_HOME/neomutt/mailcap
@@ -19,8 +21,10 @@ set sort = threads
 # Sort threads by last date recieved - newest first
 set sort_aux = reverse-last-date-received
 # Show date in year/month/day hour:minute format
-set date_format="%y/%m/%d %I:%M%p"
+set date_format="%y/%m/%d %H:%M"
 
+set status_chars = " *%A"
+set status_format = "[ Folder: %f ] [%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]%>─%?p?( %p postponed )?"
 set folder_format="%2C %t %N %F %2l %-8.8u %-8.8g %8s %d %f"
 set index_format="%4C %-17.17D %Z %-25.25n (%?l?%4l&%4c?) %s"
 
@@ -30,7 +34,7 @@ set reverse_alias=yes
 
 # charset definitions, encode from simple ascii up to utf-8 as needed
 set charset="utf-8"
-set send_charset="us-ascii:iso-8859-15:utf-8"
+set send_charset="us-ascii:iso-8859-1:utf-8"
 set attribution_locale="en_US"
 #
 # set nvim to last empty line (before signature)
@@ -46,6 +50,8 @@ bind editor ^T    complete
 
 # no default signature, we set that in the account configs
 unset signature
+unset sig_dashes
+
 #
 # don't ask for confirmation before printing
 set print
@@ -72,13 +78,6 @@ set sidebar_width = 80
 set sidebar_format = '%B%?F? [%F]?%* %?N?%N/?%S'
 set sidebar_delim_chars = "/"
 unset sidebar_short_path
-# Move the highlight to the previous mailbox
-bind index,pager \Cp sidebar-prev
-# Move the highlight to the next mailbox
-bind index,pager \Cn sidebar-next
-# Open the highlighted mailbox
-bind index,pager \Co sidebar-open
-bind index \Ct sidebar-toggle-visible
 
 set sidebar_divider_char = '|' # unicode 2502
 # our finds sort them already and so we have the folder-hook Inboxes always at
@@ -149,6 +148,9 @@ set crypt_replysignencrypted = yes
 source $XDG_CONFIG_HOME/neomutt/colors-gruvbox-shuber.muttrc
 source $XDG_CONFIG_HOME/neomutt/colors-gruvbox-shuber-extended.muttrc
 
+# Remove top help bar
+unset help
+
 
 # view html mails as text
 set implicit_autoview
@@ -156,9 +158,6 @@ set implicit_autoview
 auto_view text/html application/pdf
 # prefer text over html
 alternative_order text/plain text/enriched text/html
-
-# use main address by default
-source $XDG_CONFIG_HOME/neomutt/private/accounts/torgny@bjers.org
 
 # source in account definitions
 source $XDG_CONFIG_HOME/neomutt/private/accounts/config
