@@ -43,7 +43,7 @@ echo "${green}Installing requirements${reset}"
         jq github-cli git-delta bat nextcloud-client \
         nextcloud-client-cloudproviders myrepos base-devel khal \
         vdirsyncer python-requests-oauthlib papirus-icon-theme pam-u2f \
-        sxiv procmail neomutt
+        sxiv procmail neomutt isync notmuch notmuch-runtime
     {{ if not (lookPath "kwalletcli") }}
     pamac build --no-keep --no-confirm kwalletcli
     {{ end }}
