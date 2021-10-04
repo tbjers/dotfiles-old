@@ -34,7 +34,7 @@ checkout = git clone --depth=1 'https://github.com/Mayccoll/Gogh.git' 'gogh'
 [xpadneo]
 checkout = git clone 'https://github.com/atar-axis/xpadneo.git' 'xpadneo'
 
-[mokutil]
-checkout = git clone --depth=1 'https://github.com/lcp/mokutil.git' 'mokutil'
+[sacad]
+checkout = git clone --depth=1 'https://github.com/desbma/sacad.git' 'sacad'
 
 # vim: ft=dosini
