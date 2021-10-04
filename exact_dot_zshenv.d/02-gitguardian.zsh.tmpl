@@ -1,1 +1,1 @@
-export GITGUARDIAN_API_KEY={{ output "kwalletcli" "-f" "gitguardian" "-e" "api_key" | trim }}
+export GITGUARDIAN_API_KEY={{ (onepassword "GitGuardian API key" "Keys").details.password }}

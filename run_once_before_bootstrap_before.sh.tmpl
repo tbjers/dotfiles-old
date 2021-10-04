@@ -6,16 +6,37 @@ red=$(tput setaf 1)
 green=$(tput setaf 2)
 reset=$(tput sgr0)
 
+op_latest=1.11.4
+op_email=torgny.bjers@gmail.com
+op_arch="{{ .chezmoi.arch }}"
+
+echo "${green}Installing 1password CLI${reset}"
+
+if [[ ! -e $HOME/bin/op ]]; then
+    gpg --receive-keys 3FEF9748469ADBE15DA7CA80AC2D62742012EA22 &>/dev/null || true
+    tmpdir=$(mktemp -d)
+    curl -L -o ${tmpdir}/op.zip https://cache.agilebits.com/dist/1P/op/pkg/v${op_latest}/op_linux_${op_arch}_v${op_latest}.zip
+    [[ ! -d $HOME/bin ]] && mkdir -p $HOME/bin
+    unzip ${tmpdir}/op.zip -d ${tmpdir} && gpg --verify ${tmpdir}/op.sig ${tmpdir}/op && mv ${tmpdir}/op $HOME/bin
+    if [ ! -e $HOME/.config/op/config ]; then
+        eval $($HOME/bin/op signin bjers.1password.com ${op_email})
+    else
+        eval $($HOME/bin/op signin)
+    fi
+fi
+
 echo "${green}Installing requirements${reset}"
 
 {{ if eq .chezmoi.osRelease.id "ubuntu" "debian" }}
+
     echo "${green}  Debian/Ubuntu detected...${reset}"
     sudo apt-get update &&
         sudo apt-get -y install git git-crypt lsb-release curl zsh \
             tomb python3-pip gnupg2 pcscd scdaemon pcsc-tools \
             yubikey-manager
 
-{{ else if eq .chezmoi.osRelease.id "arch" "manjaro" }}
+{{ else if eq .chezmoi.osRelease.idLike "arch" }}
+
     echo "${green}  Arch Linux detected...${reset}"
     pamac install --upgrade --no-confirm git curl zsh run-parts unzip \
         neovim fzf yubico-pam yubikey-manager yubikey-touch-detector \
@@ -26,12 +47,15 @@ echo "${green}Installing requirements${reset}"
     pamac build --no-keep --no-confirm kwalletcli
     {{ end }}
     {{ if not (lookPath "hardcode-tray") }}
-    pamac build --no-keep --no-confirm hardcode-tray-git 
+    pamac build --no-keep --no-confirm hardcode-tray-git
     {{ end }}
 
 {{ end }}
 
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+echo "${green}Install Plug and neovim plugins${reset}"
+
+sh -c 'curl -sfLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+nvim +PlugInstall +qall
 
 # vim: set ft=sh:

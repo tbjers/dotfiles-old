@@ -26,6 +26,7 @@ if [ ! -e $HOME/bin/antibody ]; then
 fi
 
 if [ ! -d "${nwjs_home}" ]; then
+  mkdir -p "${nwjs_home}" &>/dev/null || true
   echo "${green}Installing nwjs ${nwjs_version}${reset}"
   nwjs_dir="$HOME/Tools/nwjs-sdk-${nwjs_version}-linux-x64"
   curl -sfL "${nwjs_url}" | tar -xzf - -C $(dirname $nwjs_home) && mv "${nwjs_dir}" "${nwjs_home}"
@@ -66,6 +67,10 @@ echo "${green}Enabling all user sockets${reset}"
 systemctl --user enable ~/.config/systemd/user/*.socket &>/dev/null || true
 echo "${green}Enabling all user timers${reset}"
 systemctl --user enable ~/.config/systemd/user/*.timer &>/dev/null || true
+
+echo "${green}Enable pcscd socket for smart card support${reset}"
+sudo systemctl enable --now pcscd.socket
+sudo systemctl enable --now pcscd.service
 
 echo "${green}Updating hard-coded icons${reset}"
 sudo hardcode-tray --apply --theme "Papirus-Dark" --change-color "#dfdfdf #ebdbb2" "#4285f4 #3c3836" &>/dev/null || true

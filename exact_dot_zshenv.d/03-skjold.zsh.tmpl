@@ -1,1 +1,1 @@
-export SKJOLD_GITHUB_API_TOKEN={{ output "kwalletcli" "-f" "skjold" "-e" "github_api_token" | trim }}
+export SKJOLD_GITHUB_API_TOKEN={{ (onepassword "skjold API Key" "Keys").details.password }}

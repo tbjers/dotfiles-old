@@ -1,8 +1,12 @@
---- sudo-default	2021-10-02 23:34:02.074509405 -0600
-+++ sudo	2021-10-02 23:33:38.017876659 -0600
+--- /etc/pam.d/sudo	2021-09-22 00:19:39.000000000 -0600
++++ sudo.patch	2021-10-03 15:32:45.570582354 -0600
 @@ -1,4 +1,5 @@
- #%PAM-1.0
+-#%PAM-1.0
+-auth		include		system-auth
+-account		include		system-auth
+-session		include		system-auth
++ #%PAM-1.0
 +auth     sufficient  pam_u2f.so cue [cue_prompt=Touch security key...] origin=pam://{{ .chezmoi.hostname }} appid=pam://{{ .chezmoi.hostname }} userpresence=1
- auth     include     system-auth
- account  include     system-auth
- session  include     system-auth
++auth     include     system-auth
++account  include     system-auth
++session  include     system-auth
