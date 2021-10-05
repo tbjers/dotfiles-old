@@ -2,6 +2,9 @@
 
 set -Eeuo pipefail
 
+# Set secure permissions on created directories and files
+umask 077
+
 red=$(tput setaf 1)
 green=$(tput setaf 2)
 reset=$(tput sgr0)
@@ -43,7 +46,7 @@ echo "${green}Installing requirements${reset}"
         jq github-cli git-delta bat nextcloud-client \
         nextcloud-client-cloudproviders myrepos base-devel khal \
         vdirsyncer python-requests-oauthlib papirus-icon-theme pam-u2f \
-        sxiv procmail neomutt isync notmuch notmuch-runtime
+        sxiv procmail neomutt isync notmuch notmuch-runtime afew alot
     {{ if not (lookPath "kwalletcli") }}
     pamac build --no-keep --no-confirm kwalletcli
     {{ end }}

@@ -17,6 +17,15 @@ if (( $+commands[gpg2] )); then
     alias gpg=gpg2
 fi
 
+# devour windows
+if (( $+commands[zathura] )); then
+    alias zathura="devour zathura"
+fi
+
+if (( $+commands[mpv] )); then
+    alias mpv="devour mpv"
+fi
+
 alias git="noglob git"
 
 # vim: set ft=zsh:
