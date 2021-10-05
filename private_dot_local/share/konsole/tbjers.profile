@@ -12,6 +12,10 @@ Parent=FALLBACK/
 TerminalCenter=true
 TerminalMargin=0
 
+[Interaction Options]
+AutoCopySelectedText=false
+CopyTextAsHTML=true
+
 [Scrolling]
 HistorySize=9800
 ScrollBarPosition=2
