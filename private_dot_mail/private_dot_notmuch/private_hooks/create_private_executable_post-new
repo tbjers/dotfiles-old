@@ -1,3 +1,4 @@
 #!/bin/sh
 
-afew --tag --new
+afew -v -t --new
+afew -v -m --all
