@@ -1,0 +1,81 @@
+###############################################################################
+# GRUVBOX-DARK
+#
+# colour theme for alot. © 2021 Torgny Bjers, GNU GPL3+
+# https://github.com/tbjers/alot-theme-gruvbox-dark
+###############################################################################
+
+[global]
+    footer = 'standout','','black','dark gray','black','dark gray'
+    body = '','','light gray','black','light gray','black'
+    notify_error = 'standout','','yellow','dark red','yellow','dark red'
+    notify_normal = '','','light gray','black','light gray','#68a'
+    prompt = '','','light gray','black','light gray','black'
+    tag = '','','dark blue','','dark blue',''
+    tag_focus = 'standout, bold','','dark blue','','dark blue',''
+[help]
+    text = '','','light gray','black','light gray','black'
+    section = 'underline','','white,underline','black','white,underline','black'
+    title = 'standout','','white,underline','black','white,underline','black'
+[bufferlist]
+    line_even = '','','light gray','black','light gray','black'
+    line_odd = '','','light gray','black','light gray','black'
+    line_focus = 'standout','','black','brown','black','brown'
+[namedqueries]
+    line_even = '','','light gray','black','light gray','black'
+    line_odd = '','','light gray','black','light gray','black'
+    line_focus = 'standout','','black','brown','black','brown'
+[taglist]
+    line_even = '','','light gray','black','light gray','black'
+    line_odd = '','','light gray','black','light gray','black'
+    line_focus = 'standout','','black','brown','black','brown'
+[thread]
+    arrow_heads = '','','dark red','black','dark red','black'
+    arrow_bars = '','','dark red','black','dark red','black'
+    attachment = '','','yellow,bold','black','yellow,bold','black'
+    attachment_focus = 'standout','','black','yellow','black','yellow'
+    body = '','','light gray','black','light gray','black'
+    body_focus = '','','white','brown','light gray','g19'
+    header = '','','brown','black','brown','black'
+    header_key = '','','brown','black','brown','black'
+    header_value = '','','yellow','black','yellow','black'
+
+    [[summary]]
+        even = '','','light gray','black','light gray','black'
+        odd = '','','light gray','black','light gray','black'
+        focus = 'standout','','black','brown','black','brown'
+
+[envelope]
+    body = '','','light gray','black','light gray','black'
+    header = '','','brown','black','brown','black'
+    header_key = '','','brown','black','brown','black'
+    header_value = '','','brown','black','brown','black'
+[search]
+    [[threadline]]
+        normal = '','','light gray','black','light gray','black'
+        focus = 'standout','','black','brown','black','#a80'
+        parts = date,authors,mailcount,subject,tags
+        [[[date]]]
+            normal = '','','dark gray','black','dark gray','black'
+            focus = 'standout','','black','brown','black','#a80'
+            width = 'fit',10,10
+            alignment = right
+        [[[mailcount]]]
+            normal = '','','dark gray','black','dark gray','black'
+            focus = 'standout','','black','brown','black','#a80'
+            width = 'fit', 5,5
+        [[[tags]]]
+            normal = '','','dark blue','black','dark blue','black'
+            focus = 'standout','','black','brown','black','#a80'
+        [[[authors]]]
+            normal = '','','dark magenta','black','dark magenta','black'
+            focus = 'standout','','black','brown','black','#a80'
+            width = 'fit',25,25
+        [[[subject]]]
+            normal = '','','light gray','black','light gray','black'
+            focus = 'standout','','black','brown','black','#a80'
+            width = 'weight', 1
+        [[[content]]]
+            normal = '','','light gray','black','light gray','black'
+            focus = 'standout','','black','brown','black','#a80'
+            width = 'weight', 1
