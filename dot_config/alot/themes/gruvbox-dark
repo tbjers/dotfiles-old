@@ -13,22 +13,27 @@
     prompt = '','','light gray','black','light gray','black'
     tag = '','','dark blue','','dark blue',''
     tag_focus = 'standout, bold','','dark blue','','dark blue',''
+
 [help]
     text = '','','light gray','black','light gray','black'
     section = 'underline','','white,underline','black','white,underline','black'
     title = 'standout','','white,underline','black','white,underline','black'
+
 [bufferlist]
     line_even = '','','light gray','black','light gray','black'
     line_odd = '','','light gray','black','light gray','black'
     line_focus = 'standout','','black','brown','black','brown'
+
 [namedqueries]
     line_even = '','','light gray','black','light gray','black'
     line_odd = '','','light gray','black','light gray','black'
     line_focus = 'standout','','black','brown','black','brown'
+
 [taglist]
     line_even = '','','light gray','black','light gray','black'
     line_odd = '','','light gray','black','light gray','black'
     line_focus = 'standout','','black','brown','black','brown'
+
 [thread]
     arrow_heads = '','','dark red','black','dark red','black'
     arrow_bars = '','','dark red','black','dark red','black'
@@ -50,6 +55,7 @@
     header = '','','brown','black','brown','black'
     header_key = '','','brown','black','brown','black'
     header_value = '','','brown','black','brown','black'
+
 [search]
     [[threadline]]
         normal = '','','light gray','black','light gray','black'
@@ -79,3 +85,18 @@
             normal = '','','light gray','black','light gray','black'
             focus = 'standout','','black','brown','black','#a80'
             width = 'weight', 1
+
+    [[threadline-unread]]
+        tagged_with = 'unread'
+        [[[date]]]
+            normal = '','','white','black','white','black'
+        [[[mailcount]]]
+            normal = '','','white','black','white','black'
+        [[[tags]]]
+            normal = '','','light blue','black','light blue','black'
+        [[[authors]]]
+            normal = '','','light magenta','black','light magenta','black'
+        [[[subject]]]
+            normal = '','','white','black','white','black'
+        [[[content]]]
+            normal = '','','white','black','white','black'
