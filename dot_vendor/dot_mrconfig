@@ -37,4 +37,7 @@ checkout = git clone 'https://github.com/atar-axis/xpadneo.git' 'xpadneo'
 [sacad]
 checkout = git clone --depth=1 'https://github.com/desbma/sacad.git' 'sacad'
 
+[alot]
+checkout = git clone --depth=1 'https://github.com/tbjers/alot.git' 'alot'
+
 # vim: ft=dosini

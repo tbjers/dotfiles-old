@@ -27,6 +27,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-commentary'
+Plug 'chunkhang/vim-mbsync'
+Plug 'wogong/msmtp.vim'
 
 vim.call('plug#end')
 

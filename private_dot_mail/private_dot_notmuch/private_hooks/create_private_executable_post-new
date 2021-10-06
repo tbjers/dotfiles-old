@@ -1,0 +1,4 @@
+#!/bin/sh
+
+afew -v -t --new
+afew -v -m --all

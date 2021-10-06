@@ -2,6 +2,9 @@
 
 set -Eeuo pipefail
 
+# Set secure permissions on created directories and files
+umask 077
+
 red=$(tput setaf 1)
 green=$(tput setaf 2)
 reset=$(tput sgr0)
@@ -41,9 +44,11 @@ echo "${green}Installing requirements${reset}"
     pamac install --upgrade --no-confirm git curl zsh run-parts unzip \
         neovim fzf yubico-pam yubikey-manager yubikey-touch-detector \
         jq github-cli git-delta bat nextcloud-client \
-        nextcloud-client-cloudproviders myrepos base-devel khal \
+        nextcloud-client-cloudproviders myrepos base-devel khal khard \
         vdirsyncer python-requests-oauthlib papirus-icon-theme pam-u2f \
-        sxiv procmail neomutt isync notmuch notmuch-runtime
+        sxiv procmail neomutt isync notmuch notmuch-runtime afew \
+        urlscan w3m msmtp ranger mediainfo highlight atool \
+        transmission-cli
     {{ if not (lookPath "kwalletcli") }}
     pamac build --no-keep --no-confirm kwalletcli
     {{ end }}
@@ -59,4 +64,4 @@ sh -c 'curl -sfLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 nvim +PlugInstall +qall
 
-# vim: set ft=sh:
+# vim: set ft=bash:
