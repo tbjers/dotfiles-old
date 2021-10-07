@@ -1,0 +1,10 @@
+#!/bin/sh
+
+OP_SESSION_bjers="$(onepassword-signin)"
+export OP_SESSION_bjers
+
+vdirsyncer discover \
+  && vdirsyncer sync \
+  && vdirsyncer metasync
+
+# vim: set ft=sh:

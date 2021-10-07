@@ -6,5 +6,3 @@ RefuseManualStop=yes
 [Service]
 Type=oneshot
 ExecStart=/home/tbjers/bin/mail/syncmail
-StandardOutput=syslog
-StandardError=syslog

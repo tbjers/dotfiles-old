@@ -1,0 +1,26 @@
+[calendars]
+
+  [[personal]]
+  type = "discover"
+  path = "~/.local/share/calendars/personal/*"
+  color = "yellow"
+
+[locale]
+timeformat = "%H:%M"
+dateformat = "%Y-%m-%d"
+longdateformat = "%Y-%m-%d"
+datetimeformat = "%Y-%m-%d %H:%M"
+longdatetimeformat = "%Y-%m-%d %H:%M"
+default_timezone = "US/Eastern"
+local_timezone = "US/Eastern"
+firstweekday = 0
+unicode_symbols = false
+
+[highlight_days]
+default_color = ""
+method = "fg"
+
+[view]
+blank_line_before_day = false
+
+# vim: ft=toml:

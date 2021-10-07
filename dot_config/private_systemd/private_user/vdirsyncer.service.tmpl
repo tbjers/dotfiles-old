@@ -1,0 +1,10 @@
+[Unit]
+Description=Synchronize calendars and contacts
+RefuseManualStart=no
+RefuseManualStop=yes
+
+[Service]
+Type=oneshot
+ExecStart=/home/{{ .chezmoi.username }}/bin/calendar/sync
+
+# vim: set ft=systemd:
