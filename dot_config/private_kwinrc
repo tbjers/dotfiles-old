@@ -19,6 +19,11 @@ Rows=2
 [Effect-CubeSlide]
 RotationDuration=250
 
+[Effect-ThumbnailAside]
+MaxWidth=250
+Opacity=65
+Spacing=1
+
 [NightColor]
 Active=true
 LatitudeAuto=35.2369
@@ -30,7 +35,10 @@ diminactiveEnabled=true
 glideEnabled=true
 kwin4_effect_dimscreenEnabled=true
 kwin4_effect_fadeEnabled=false
+sheetEnabled=true
 slideEnabled=false
+slidebackEnabled=true
+thumbnailasideEnabled=true
 wobblywindowsEnabled=true
 
 [TabBox]
