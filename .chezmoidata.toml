@@ -1,6 +1,6 @@
 caldavdir = "~/.local/share/vdirsyncer/caldav"
 editor = "nvim"
-email = "torgny.bjers@gmail.com"
+email = "torgny@bjers.org"
 gpgkey = "0xF189ABC3C4117523"
 loginmanager = "true"
 name = "Torgny Bjers"

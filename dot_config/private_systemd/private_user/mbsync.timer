@@ -5,8 +5,8 @@ RefuseManualStop=no
 
 [Timer]
 Persistent=false
-OnBootSec=5m
-OnUnitActiveSec=5m
+OnBootSec=3m
+OnUnitActiveSec=1m
 Unit=mbsync.service
 
 [Install]
