@@ -5,6 +5,7 @@ set -Eeuo pipefail
 # Set secure permissions on created directories and files
 umask 077
 
+# Set version of NWJS
 nwjs_version="v0.57.0"
 nwjs_url="https://dl.nwjs.io/${nwjs_version}/nwjs-sdk-${nwjs_version}-linux-x64.tar.gz"
 nwjs_home=$HOME/Tools/nwjs
@@ -13,6 +14,7 @@ red=$(tput setaf 1)
 green=$(tput setaf 2)
 reset=$(tput sgr0)
 
+# Sanity check to ensure chezmoi is in PATH
 if [ ! "$(command -v chezmoi)" ]; then
   bin_dir="$HOME/bin"
   chezmoi="$bin_dir/chezmoi"
@@ -20,6 +22,7 @@ else
   chezmoi=chezmoi
 fi
 
+# Install antibody for zsh
 if [ ! -e $HOME/bin/antibody ]; then
     echo "${green}Installing antibody and creating static plugin list${reset}"
     curl -sfL git.io/antibody | sh -s - -b $HOME/bin &&
@@ -28,6 +31,7 @@ if [ ! -e $HOME/bin/antibody ]; then
             {{ .chezmoi.homeDir }}/.zsh_plugins.sh
 fi
 
+# install NWJS
 if [ ! -d "${nwjs_home}" ]; then
   mkdir -p "${nwjs_home}" &>/dev/null || true
   echo "${green}Installing nwjs ${nwjs_version}${reset}"
@@ -63,6 +67,14 @@ asdf plugin list | grep -q "^nodejs$" || asdf plugin-add nodejs
 asdf plugin list | grep -q "^rust$" || asdf plugin-add rust
 asdf plugin list | grep -q "^shellcheck$" || asdf plugin-add shellcheck
 asdf plugin list | grep -q "^snyk$" || asdf plugin-add snyk
+
+echo "${green}Install latest version of Go${reset}"
+asdf install golang latest
+asdf global golang latest
+go install github.com/cointop-sh/cointop@latest
+
+echo "${green}Install latest version of NodeJS${reset}"
+asdf install nodejs latest
 
 echo "${green}Enabling all user services${reset}"
 systemctl --user enable ~/.config/systemd/user/yubikey-touch-detector.service &>/dev/null || true
