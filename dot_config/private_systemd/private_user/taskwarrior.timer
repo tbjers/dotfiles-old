@@ -1,0 +1,13 @@
+[Unit]
+Description=Taskwarrior synchronization timer
+RefuseManualStart=no
+RefuseManualStop=no
+
+[Timer]
+Persistent=false
+OnBootSec=3m
+OnUnitActiveSec=1m
+Unit=taskwarrior.service
+
+[Install]
+WantedBy=default.target

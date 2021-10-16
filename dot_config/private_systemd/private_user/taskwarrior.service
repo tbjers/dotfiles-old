@@ -1,0 +1,8 @@
+[Unit]
+Description=Taskwarrior synchronization service
+RefuseManualStart=no
+RefuseManualStop=yes
+
+[Service]
+Type=oneshot
+ExecStart=task sync
