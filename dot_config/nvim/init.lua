@@ -29,6 +29,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-commentary'
 Plug 'chunkhang/vim-mbsync'
 Plug 'wogong/msmtp.vim'
+Plug('mg979/vim-visual-multi', {branch = 'master'})
 
 vim.call('plug#end')
 
