@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+sed -e "/^BEGIN:VEVENT$/aUID:$(uuid 2>/dev/null || uuidgen 2>/dev/null || python -c 'import uuid; print(uuid.uuid1())')"
