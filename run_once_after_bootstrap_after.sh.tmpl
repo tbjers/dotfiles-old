@@ -71,13 +71,24 @@ asdf plugin list | grep -q "^snyk$" || asdf plugin-add snyk
 echo "${green}Install latest version of Go${reset}"
 asdf install golang latest
 asdf global golang latest
+
+echo "${green}Install latest version of cointop${reset}"
 go install github.com/cointop-sh/cointop@latest
 
-echo "${green}Install latest version of NodeJS${reset}"
-asdf install nodejs latest
+echo "${green}Install LTS version of NodeJS${reset}"
+asdf install nodejs lts
 
-echo "${green}Enabling all user services${reset}"
+echo "${green}Install stable version of Rust${reset}"
+asdf install rust stable
+
+if [ ! -e $HOME/.local/bin/poetry ]; then
+  echo "${green}Install Poetry for Python${reset}"
+  curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
+fi
+
+echo "${green}Enabling user services${reset}"
 systemctl --user enable ~/.config/systemd/user/yubikey-touch-detector.service &>/dev/null || true
+systemctl --user enable ~/.config/systemd/user/tmux.service &>/dev/null || true
 echo "${green}Enabling all user sockets${reset}"
 systemctl --user enable ~/.config/systemd/user/*.socket &>/dev/null || true
 echo "${green}Enabling all user timers${reset}"
