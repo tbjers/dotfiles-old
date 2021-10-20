@@ -26,6 +26,10 @@ if (( $+commands[mpv] )); then
     alias mpv="devour mpv"
 fi
 
+if (( $+commands[tmuxinator] )); then
+    alias mux=tmuxinator
+fi
+
 alias git="noglob git"
 
 # vim: set ft=zsh:
