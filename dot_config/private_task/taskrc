@@ -1,0 +1,19 @@
+# Files
+data.location=$XDG_DATA_HOME/task/
+hooks.location=$XDG_CONFIG_HOME/task/hooks/
+
+include /usr/share/doc/task/rc/solarized-dark-256.theme
+
+color.label=
+color.label.sort=
+color.alternate=on gray4
+color.completed=color238 on color0
+color.deleted=color88
+
+include $XDG_CONFIG_HOME/task/credentials
+
+uda.taskwarrior-tui.task-report.next.filter=status:pending -WAITING
+
+news.version=2.6.0
+context.work.read=project:Work or +urgent
+context.work.write=project:Work
