@@ -1,11 +1,14 @@
 #!/bin/sh
 
+# ensure that NOTMUCH_CONFIG exists for systemd unit
+NOTMUCH_CONFIG="${NOTMUCH_CONFIG:-$XDG_CONFIG_HOME/mail/notmuch-config}"
 OP_SESSION_bjers="$(onepassword-signin)"
 export OP_SESSION_bjers
+export NOTMUCH_CONFIG
 
 # sync mail and call afew through a hook in $MAILDIR/.notmuch/hooks/post-new
 if [ -z "$1" ]; then
-    mbsync -a -c "${XDG_CONFIG_HOME}/mail/mbsyncrc" && notmuch new
+    mbsync -a -c "${XDG_CONFIG_HOME}/mail/mbsyncrc" && notmuch new --quiet
 else
-    mbsync -c "${XDG_CONFIG_HOME}/mail/mbsyncrc" "$1" && notmuch new
+    mbsync -c "${XDG_CONFIG_HOME}/mail/mbsyncrc" "$1" && notmuch new --quiet
 fi
