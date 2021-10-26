@@ -40,4 +40,7 @@ checkout = git clone --depth=1 'https://github.com/desbma/sacad.git' 'sacad'
 [alot]
 checkout = git clone --depth=1 'https://github.com/tbjers/alot.git' 'alot'
 
+[taskwarrior-tui]
+checkout = git clone --depth=1 'https://github.com/kdheepak/taskwarrior-tui.git' 'taskwarrior-tui'
+
 # vim: ft=dosini
