@@ -22,7 +22,7 @@ HistorySize=9800
 ScrollBarPosition=2
 
 [Terminal Features]
-BellMode=3
+BellMode=1
 BlinkingCursorEnabled=true
 BlinkingTextEnabled=false
 UrlHintsModifiers=100663296
