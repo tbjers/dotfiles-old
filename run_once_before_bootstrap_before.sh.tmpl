@@ -9,23 +9,37 @@ red=$(tput setaf 1)
 green=$(tput setaf 2)
 reset=$(tput sgr0)
 
-op_latest=1.11.4
-op_email=torgny.bjers@gmail.com
-op_arch="{{ .chezmoi.arch }}"
+verlte() {
+  printf '%s\n%s' "$1" "$2" | sort -C -V
+}
 
-echo "${green}Installing 1password CLI${reset}"
+verlt() {
+  ! verlte "$2" "$1"
+}
 
-if [[ ! -e $HOME/bin/op ]]; then
+install_op() {
     gpg --receive-keys 3FEF9748469ADBE15DA7CA80AC2D62742012EA22 &>/dev/null || true
     tmpdir=$(mktemp -d)
     curl -L -o ${tmpdir}/op.zip https://cache.agilebits.com/dist/1P/op/pkg/v${op_latest}/op_linux_${op_arch}_v${op_latest}.zip
     [[ ! -d $HOME/bin ]] && mkdir -p $HOME/bin
     unzip ${tmpdir}/op.zip -d ${tmpdir} && gpg --verify ${tmpdir}/op.sig ${tmpdir}/op && mv ${tmpdir}/op $HOME/bin
+}
+
+op_latest=1.12.3
+op_email=torgny.bjers@gmail.com
+op_arch="{{ .chezmoi.arch }}"
+
+if [[ ! -e $HOME/bin/op ]]; then
+    echo "${green}Installing 1password CLI${reset}"
+    install_op
     if [ ! -e $HOME/.config/op/config ]; then
         eval $($HOME/bin/op signin bjers.1password.com ${op_email})
     else
         eval $($HOME/bin/op signin)
     fi
+else
+    echo "${green}Upgrading 1password CLI${reset}"
+    verlt "$(op --version)" "${op_latest}" && install_op
 fi
 
 echo "${green}Installing requirements${reset}"

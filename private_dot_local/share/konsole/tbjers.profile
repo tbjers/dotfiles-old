@@ -2,6 +2,7 @@
 ColorScheme=Gruvbox
 Font=Noto Mono,13,-1,5,50,0,0,0,0,0
 TabColor=24,25,29,0
+UseFontLineChararacters=true
 
 [General]
 Command=/usr/bin/zsh
@@ -10,12 +11,17 @@ Environment=TERM=xterm-256color,COLORTERM=truecolor
 InvertSelectionColors=false
 Name=tbjers
 Parent=FALLBACK/
+ShowTerminalSizeHint=true
 TerminalCenter=true
 TerminalMargin=0
 
 [Interaction Options]
-AutoCopySelectedText=false
-CopyTextAsHTML=true
+AutoCopySelectedText=true
+ColorFilterEnabled=true
+CopyTextAsHTML=false
+MouseWheelZoomEnabled=false
+TrimLeadingSpacesInSelectedText=true
+TrimTrailingSpacesInSelectedText=true
 
 [Scrolling]
 HistorySize=9800
