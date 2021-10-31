@@ -1,4 +1,6 @@
 [Appearance]
+AntiAliasFonts=true
+BoldIntense=true
 ColorScheme=Gruvbox
 Font=Noto Mono,13,-1,5,50,0,0,0,0,0
 TabColor=24,25,29,0
@@ -28,7 +30,7 @@ HistorySize=9800
 ScrollBarPosition=2
 
 [Terminal Features]
-BellMode=1
+BellMode=3
 BlinkingCursorEnabled=true
 BlinkingTextEnabled=false
 UrlHintsModifiers=100663296
