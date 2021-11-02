@@ -19,6 +19,8 @@ function alot() {
     OP_SESSION_bjers=$(onepassword-signin) command alot "$@"
 }
 
-function mux() {
-    OP_SESSION_bjers=$(onepassword-signin) command mux "$@"
-}
+if (( $+commands[tmuxinator] )); then
+    function mux() {
+        OP_SESSION_bjers=$(onepassword-signin) command tmuxinator "$@"
+    }
+fi

@@ -86,6 +86,9 @@ if [ ! -e $HOME/.local/bin/poetry ]; then
   curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
 fi
 
+echo "${green}Install latest version of Joplin${reset}"
+wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
+
 echo "${green}Enabling user services${reset}"
 systemctl --user enable ~/.config/systemd/user/yubikey-touch-detector.service &>/dev/null || true
 systemctl --user enable ~/.config/systemd/user/tmux.service &>/dev/null || true

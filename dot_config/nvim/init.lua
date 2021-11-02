@@ -6,30 +6,33 @@ local o = vim.o
 local wo = vim.wo
 local bo = vim.bo
 local map = vim.api.nvim_set_keymap
+local var = vim.api.nvim_set_var
 
 vim.call('plug#begin', '~/.config/nvim/plugged')
 
-Plug 'preservim/nerdtree'
+Plug 'chunkhang/vim-mbsync'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'digitaltoad/vim-pug'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'sainnhe/gruvbox-material'
-Plug 'sheerun/vim-polyglot'
-Plug 'mattn/emmet-vim'
-Plug('cespare/vim-toml', {branch = 'main'})
 Plug 'elzr/vim-json'
 Plug 'gabrielelana/vim-markdown'
-Plug 'sirtaj/vim-openscad'
 Plug 'leafgarland/typescript-vim'
 Plug 'leafOfTree/vim-svelte-plugin'
-Plug 'digitaltoad/vim-pug'
+Plug 'mattn/emmet-vim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'ryanoasis/vim-devicons'
+Plug 'sainnhe/gruvbox-material'
+Plug 'sheerun/vim-polyglot'
+Plug 'sirtaj/vim-openscad'
+Plug 'tpope/vim-commentary'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'ryanoasis/vim-devicons'
-Plug 'tpope/vim-commentary'
-Plug 'chunkhang/vim-mbsync'
 Plug 'wogong/msmtp.vim'
+Plug('cespare/vim-toml', {branch = 'main'})
 Plug('mg979/vim-visual-multi', {branch = 'master'})
+Plug('ms-jpq/chadtree', {branch = 'chad', ['do'] = 'python3 -m chadtree deps'})
+Plug('ms-jpq/coq_nvim', {branch = 'coq'})
+Plug('ms-jpq/coq.artifacts', {branch = 'artifacts'})
 
 vim.call('plug#end')
 
@@ -59,25 +62,22 @@ bo.tabstop = 2
 -- Airline settings
 vim.g['airline#extensions#tabline#enabled'] = true
 vim.g['airline#extensions#tabline#formatter'] = 'unique_tail_improved'
-vim.g['airline_powerline_fonts'] = true
+vim.g['airline#extensions#tabline#buffer_nr_show'] = true
+
+vim.g['airline_symbols'] = {
+  colnr = ':',
+  linenr = ' ',
+  maxlinenr = ''
+}
+
+vim.g['airline_powerline_fonts'] = false
 vim.g['airline_theme'] = 'gruvbox_material'
 
 -- Theme configuration
-vim.g['gruvbox_material_background'] = 'medium'
-vim.g['gruvbox_material_enable_italic'] = true
+vim.g['gruvbox_material_background'] = 'hard'
+vim.g['gruvbox_material_enable_italic'] = false
 vim.g['gruvbox_material_disable_italic_comment'] = true
 vim.g['gruvbox_material_enable_bold'] = true
-
--- NERDTree Configuration
-map('n', '<Leader>n', ':NERDTreeMirror<CR>:NERDTreeFocus<CR>', {noremap=true})
-map('n', '<C-n>', ':NERDTree<CR>', {noremap=true})
-map('n', '<C-t>', ':NERDTreeToggle<CR>', {noremap=true})
-map('n', '<C-f>', ':NERDTreeFind<CR>', {noremap=true})
-vim.g['NERDTreeGitStatusUseNerdFonts'] = 1 -- you should install nerdfonts by yourself. default: 0
-vim.g['NERDTreeQuitOnOpen'] = 1
-
--- NERDTree stuff not supported by LUA, yet...
-vim.cmd 'source ~/.config/nvim/NERDTree.vim'
 
 -- Netrw configuration
 vim.g['netrw_banner'] = 0
@@ -89,11 +89,31 @@ vim.g['netrw_winsize'] = 25
 -- Editorconfig/Fugitive
 vim.g['EditorConfig_exclude_patterns'] = {'fugitive://.*', 'scp://.*'}
 
+-- CHADTree configuration
+local chadtree_settings = {
+  xdg=true
+}
+var('chadtree_settings', chadtree_settings)
+
 -- General keymappings
 map('n', '<Leader>w', ':bw<CR>', {noremap=true})
 map('n', '<C-^>', ':bn<CR>', {noremap=true})
 map('n', '<C-s>', ':update', {noremap=true})
-map('n', '<Leader>l', ':set list!<CR>', {noremap})
+map('n', '<Leader>l', ':set list!<CR>', {noremap=true})
+map('n', '<Leader>v', ':CHADopen<CR>', {noremap=true})
+
+-- COQ settings
+local coq_settings = {
+  auto_start='shut-up',
+  xdg=true
+}
+var('coq_settings', coq_settings)
+
+-- Completion/LSP
+local lsp = require 'lspconfig'
+local coq = require 'coq'
+lsp.pylsp.setup{}
+lsp.pylsp.setup(coq.lsp_ensure_capabilities())
 
 -- Apply Theme
 vim.cmd 'colo gruvbox-material'
