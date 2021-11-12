@@ -12,12 +12,6 @@ no-allow-external-cache
 # Enable SSH agent support
 enable-ssh-support
 
-{{- if eq .wm "kde" }}
-pinentry-program /usr/bin/pinentry-gtk-2
-{{- else if eq .chezmoi.wm "gnome" }}
-pinentry-program /usr/bin/pinentry-gnome3
-{{- else }}
 pinentry-program /usr/bin/pinentry-qt
-{{- end }}
 
 # vim: set ft=conf:
