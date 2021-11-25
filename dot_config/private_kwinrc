@@ -1,5 +1,5 @@
 [$Version]
-update_info=kwin.upd:replace-scalein-with-scale,kwin.upd:port-minimizeanimation-effect-to-js,kwin.upd:port-scale-effect-to-js,kwin.upd:port-dimscreen-effect-to-js,kwin.upd:auto-bordersize,kwin.upd:animation-speed,kwin.upd:desktop-grid-click-behavior,kwin.upd:no-swap-encourage
+update_info=kwin.upd:replace-scalein-with-scale,kwin.upd:port-minimizeanimation-effect-to-js,kwin.upd:port-scale-effect-to-js,kwin.upd:port-dimscreen-effect-to-js,kwin.upd:auto-bordersize,kwin.upd:animation-speed,kwin.upd:desktop-grid-click-behavior,kwin.upd:no-swap-encourage,kwin.upd:make-translucency-effect-disabled-by-default,kwin.upd:remove-flip-switch-effect,kwin.upd:remove-cover-switch-effect,kwin.upd:remove-cubeslide-effect,kwin.upd:remove-xrender-backend
 
 [Compositing]
 GLTextureFilter=0
@@ -31,16 +31,18 @@ LatitudeAuto=35.2369
 LongitudeAuto=-80.8957
 
 [Plugins]
-cubeslideEnabled=true
 diminactiveEnabled=true
 glideEnabled=true
 kwin4_effect_dimscreenEnabled=true
 kwin4_effect_fadeEnabled=false
 sheetEnabled=true
-slideEnabled=false
 slidebackEnabled=true
 thumbnailasideEnabled=true
 wobblywindowsEnabled=true
+
+[SubSession: 8f03eaba-4ebf-498d-848c-d55e90b6bebf]
+active=-1
+count=0
 
 [TabBox]
 LayoutName=thumbnail_grid

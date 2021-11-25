@@ -17,3 +17,8 @@ uda.taskwarrior-tui.task-report.next.filter=status:pending -WAITING
 news.version=2.6.0
 context.work.read=project:Work or +urgent
 context.work.write=project:Work
+
+report.first_active.description=first active task
+report.first_active.columns=id,project.full,description.truncated
+report.first_active.labels=ID,Proj,Desc
+report.first_active.filter=limit:1 +ACTIVE

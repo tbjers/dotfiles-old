@@ -28,6 +28,7 @@ Plug 'tpope/vim-commentary'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'wogong/msmtp.vim'
+Plug 'petobens/poet-v'
 Plug('cespare/vim-toml', {branch = 'main'})
 Plug('mg979/vim-visual-multi', {branch = 'master'})
 Plug('ms-jpq/chadtree', {branch = 'chad', ['do'] = 'python3 -m chadtree deps'})
@@ -38,6 +39,7 @@ vim.call('plug#end')
 
 -- Global settings
 o.swapfile = false
+o.updatecount = 0
 o.smartcase = true
 o.laststatus = 2
 o.hlsearch = true
@@ -46,6 +48,8 @@ o.ignorecase = false
 o.showtabline = 2
 o.showmode = false
 o.smarttab = true
+o.backup = false
+o.fsync = true
 
 -- Window settings
 wo.wrap = false
@@ -114,6 +118,9 @@ local lsp = require 'lspconfig'
 local coq = require 'coq'
 lsp.pylsp.setup{}
 lsp.pylsp.setup(coq.lsp_ensure_capabilities())
+
+-- Poetry support
+vim.g['poetv_executables'] = {'poetry'}
 
 -- Apply Theme
 vim.cmd 'colo gruvbox-material'
