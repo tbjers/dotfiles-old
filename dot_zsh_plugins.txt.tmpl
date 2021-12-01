@@ -2,7 +2,7 @@ robbyrussell/oh-my-zsh
 
 {{ if eq .chezmoi.osRelease.id "ubuntu" }}
 robbyrussell/oh-my-zsh path:plugins/ubuntu
-{ else if eq .chezmoi.osRelease.id "arch" "manjaro" }}
+{ else if eq .chezmoi.osRelease.idLike "arch" }}
 robbyrussell/oh-my-zsh path:plugins/archlinux
 {{ end }}
 
@@ -10,9 +10,6 @@ robbyrussell/oh-my-zsh path:plugins/direnv
 robbyrussell/oh-my-zsh path:plugins/git
 
 robbyrussell/oh-my-zsh path:plugins/fancy-ctrl-z
-robbyrussell/oh-my-zsh path:plugins/python
-robbyrussell/oh-my-zsh path:plugins/pyenv
-robbyrussell/oh-my-zsh path:plugins/pip
 robbyrussell/oh-my-zsh path:plugins/pylint
 robbyrussell/oh-my-zsh path:plugins/gnu-utils
 robbyrussell/oh-my-zsh path:plugins/extract
@@ -23,10 +20,6 @@ robbyrussell/oh-my-zsh path:plugins/ansible
 
 robbyrussell/oh-my-zsh path:plugins/golang
 robbyrussell/oh-my-zsh path:plugins/vscode
-robbyrussell/oh-my-zsh path:plugins/docker
-robbyrussell/oh-my-zsh path:plugins/docker-compose
-robbyrussell/oh-my-zsh path:plugins/docker-machine
-robbyrussell/oh-my-zsh path:plugins/vagrant
 robbyrussell/oh-my-zsh path:plugins/asdf
 
 robbyrussell/oh-my-zsh path:plugins/gpg-agent
