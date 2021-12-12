@@ -20,13 +20,18 @@ Rows=2
 [Effect-CubeSlide]
 RotationDuration=250
 
+[Effect-DimInactive]
+Strength=10
+
+[Effect-ShowFps]
+TextColor=170,0,0
+
 [Effect-ThumbnailAside]
 MaxWidth=250
 Opacity=65
 Spacing=1
 
 [NightColor]
-Active=true
 LatitudeAuto=35.2369
 LongitudeAuto=-80.8957
 
@@ -35,7 +40,9 @@ diminactiveEnabled=true
 glideEnabled=true
 kwin4_effect_dimscreenEnabled=true
 kwin4_effect_fadeEnabled=false
+kwin4_effect_fadedesktopEnabled=true
 sheetEnabled=true
+slideEnabled=false
 slidebackEnabled=true
 thumbnailasideEnabled=true
 wobblywindowsEnabled=true

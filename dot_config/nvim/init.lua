@@ -38,6 +38,7 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-nvim-lsp'
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
+  use 'editorconfig/editorconfig-vim' -- Editorconfig is life
 end)
 
 -- By default title is off. Needed for detecting window as neovim instance (sworkstyle)

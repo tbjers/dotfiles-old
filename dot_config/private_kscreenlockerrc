@@ -1,6 +1,10 @@
 [$Version]
 update_info=kscreenlocker.upd:0.1-autolock
 
+[Daemon]
+LockGrace=15
+Timeout=30
+
 [Greeter][Wallpaper][org.kde.image][General]
 Image=/home/tbjers/sync/Pictures/Wallpapers/black-and-gray-dots.jpg
 SlidePaths=/usr/share/wallpapers
