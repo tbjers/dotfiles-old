@@ -34,6 +34,8 @@ in
     echo "\$GNUPGHOME has been set up for you. Generated keys will be in $GNUPGHOME."
   '';
 
+  nixpkgs.config.allowUnfree = true;
+
   environment.systemPackages = with pkgs; [
     yubikey-personalization
     yubikey-manager
@@ -48,6 +50,9 @@ in
 
   services.udev.packages = with pkgs; [ yubikey-personalization yubikey-manager ];
   services.pcscd.enable = true;
+
+  services.printing.enable = true;
+  services.printing.drivers = with pkgs; [cnijfilter2 canon-cups-ufr2];
 
   # make sure we are air-gapped
   networking.wireless.enable = false;
