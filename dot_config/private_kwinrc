@@ -32,8 +32,12 @@ Opacity=65
 Spacing=1
 
 [NightColor]
+Active=true
+EveningBeginFixed=1900
 LatitudeAuto=35.2369
 LongitudeAuto=-80.8957
+Mode=Times
+MorningBeginFixed=0700
 
 [Plugins]
 diminactiveEnabled=true
