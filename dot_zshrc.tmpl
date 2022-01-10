@@ -3,6 +3,13 @@
 # Use powerline
 USE_POWERLINE="true"
 
+if command -v "figlet" >/dev/null && command -v "lolcat" >/dev/null; then
+  TXT=$(figlet -s -f ~/.local/share/figlet/smslant "$(hostname)")
+  INFO="$(uname -r -m -o)"
+  LONGEST=$(($(echo "${TXT}\n${INFO}" | awk 'length > max_length { max_length = length; longest_line = $0 } END { print max_length }') + 2))
+  echo "${TXT}\n${INFO}" | figlet -c -w ${LONGEST} -f ~/.local/share/figlet/Term | lolcat
+fi
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block, everything else may go below.
@@ -42,19 +49,19 @@ compinit
 export ALTERNATE_EDITOR=""
 
 if command -v "nvim" >/dev/null; then
-    export EDITOR="nvim"
-    export GIT_EDITOR="nvim"
+  export EDITOR="nvim"
+  export GIT_EDITOR="nvim"
 elif command -v "vim" >/dev/null; then
-    export EDITOR="vim"
-    export GIT_EDITOR="vim"
+  export EDITOR="vim"
+  export GIT_EDITOR="vim"
 fi
 
 export VISUAL='nvim'
 
 # Real Misc
 if command -v "bat" >/dev/null; then
-    export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-    export MANROFFOPT="-c"
+  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+  export MANROFFOPT="-c"
 fi
 
 export PAGER='less'
