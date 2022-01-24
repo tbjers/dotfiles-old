@@ -26,5 +26,8 @@ path=($^path(-/N))
 # emacs
 [[ -d $HOME/.emacs ]] && PATH="$HOME/.emacs/bin:$PATH"
 
+# platformio
+[[ -d $HOME/.platformio/penv/bin ]] && PATH="$HOME/.platformio/penv/bin:$PATH"
+
 # inject path into systemctl user session so things like emacs have it available
 systemctl --user import-environment PATH
