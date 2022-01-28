@@ -12,6 +12,9 @@ path=(
     ${HOME}/bin
     ${HOME}/bin/**
     ${HOME}/go/bin
+    ${HOME}/.platformio/penv/bin
+    ${HOME}/.emacs/bin
+    ${HOME}/.pyenv/bin
     ${path}
     /usr/local/{bin,sbin}
 )
@@ -19,15 +22,6 @@ path=(
 # exist at all (N) and apply that to all in array (^) source:
 # http://stackoverflow.com/a/9352979/1469693
 path=($^path(-/N))
-
-# pyenv
-[[ -d $HOME/.pyenv ]] && PATH="$HOME/.pyenv/bin:$PATH"
-
-# emacs
-[[ -d $HOME/.emacs ]] && PATH="$HOME/.emacs/bin:$PATH"
-
-# platformio
-[[ -d $HOME/.platformio/penv/bin ]] && PATH="$HOME/.platformio/penv/bin:$PATH"
 
 # inject path into systemctl user session so things like emacs have it available
 systemctl --user import-environment PATH
