@@ -17,6 +17,9 @@ Name_4=Editors
 Number=4
 Rows=2
 
+[Effect-Blur]
+NoiseStrength=7
+
 [Effect-CubeSlide]
 RotationDuration=250
 
@@ -30,6 +33,10 @@ TextColor=170,0,0
 MaxWidth=250
 Opacity=65
 Spacing=1
+
+[Effect-kwin4_effect_translucency]
+Inactive=71
+MoveResize=88
 
 [NightColor]
 Active=true
@@ -45,6 +52,7 @@ glideEnabled=true
 kwin4_effect_dimscreenEnabled=true
 kwin4_effect_fadeEnabled=false
 kwin4_effect_fadedesktopEnabled=true
+kwin4_effect_translucencyEnabled=true
 sheetEnabled=true
 slideEnabled=false
 slidebackEnabled=true

@@ -12,6 +12,7 @@ path=(
     ${HOME}/bin
     ${HOME}/bin/**
     ${HOME}/go/bin
+    ${HOME}/gn
     ${HOME}/.platformio/penv/bin
     ${HOME}/.emacs/bin
     ${HOME}/.pyenv/bin
