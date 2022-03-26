@@ -12,7 +12,9 @@
  '(projectile-mode t nil (projectile))
  '(projectile-per-project-compilation-buffer t)
  '(safe-local-variable-values
-   '((projectile-project-run-cmd . "cp ./build/pwrbox.uf2 /run/media/tbjers/RPI-RP*/")
+   '((projectile-project-compilation-cmd . "bundle exec jekyll build")
+     (projectile-project-install-cmd . "bundle install")
+     (projectile-project-run-cmd . "cp ./build/pwrbox.uf2 /run/media/tbjers/RPI-RP*/")
      (projectile-project-run-cmd . "cp ./build/pwrbox.uf2 /media/tbjers/RPI-RP*/")
      (projectile-project-install-cmd . "cp ./build/pwrbox.uf2 /media/tbjers/RPI-RP*/")
      (projectile-project-compilation-cmd . "cmake --build build")

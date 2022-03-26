@@ -1,5 +1,5 @@
 [$Version]
-update_info=kwin.upd:replace-scalein-with-scale,kwin.upd:port-minimizeanimation-effect-to-js,kwin.upd:port-scale-effect-to-js,kwin.upd:port-dimscreen-effect-to-js,kwin.upd:auto-bordersize,kwin.upd:animation-speed,kwin.upd:desktop-grid-click-behavior,kwin.upd:no-swap-encourage,kwin.upd:make-translucency-effect-disabled-by-default,kwin.upd:remove-flip-switch-effect,kwin.upd:remove-cover-switch-effect,kwin.upd:remove-cubeslide-effect,kwin.upd:remove-xrender-backend
+update_info=kwin.upd:replace-scalein-with-scale,kwin.upd:port-minimizeanimation-effect-to-js,kwin.upd:port-scale-effect-to-js,kwin.upd:port-dimscreen-effect-to-js,kwin.upd:auto-bordersize,kwin.upd:animation-speed,kwin.upd:desktop-grid-click-behavior,kwin.upd:no-swap-encourage,kwin.upd:make-translucency-effect-disabled-by-default,kwin.upd:remove-flip-switch-effect,kwin.upd:remove-cover-switch-effect,kwin.upd:remove-cubeslide-effect,kwin.upd:remove-xrender-backend,kwin.upd:enable-scale-effect-by-default
 
 [Compositing]
 GLTextureFilter=0
@@ -35,8 +35,7 @@ Opacity=65
 Spacing=1
 
 [Effect-kwin4_effect_translucency]
-Inactive=71
-MoveResize=88
+MoveResize=81
 
 [NightColor]
 Active=true
@@ -50,11 +49,9 @@ MorningBeginFixed=0700
 diminactiveEnabled=true
 glideEnabled=true
 kwin4_effect_dimscreenEnabled=true
-kwin4_effect_fadeEnabled=false
-kwin4_effect_fadedesktopEnabled=true
+kwin4_effect_scaleEnabled=false
 kwin4_effect_translucencyEnabled=true
 sheetEnabled=true
-slideEnabled=false
 slidebackEnabled=true
 thumbnailasideEnabled=true
 wobblywindowsEnabled=true

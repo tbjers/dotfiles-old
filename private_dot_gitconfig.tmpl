@@ -11,24 +11,24 @@
     defaultBranch = main
 
 [core]
-	pager = diff-so-fancy | less --tabs=4 -RFX
+    pager = diff-so-fancy | less --tabs=4 -RFX
 
 [fetch]
     prune = true
 
 [color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
 
 [color "diff"]
-	meta = yellow
-	frag = magenta bold
-	commit = yellow bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
+    meta = yellow
+    frag = magenta bold
+    commit = yellow bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
 
 [delta]
     syntax-theme = gruvbox-dark
@@ -49,7 +49,7 @@
     helper = cache --timeout=3600
 
 [color]
-    ui = auto
+    ui = true
 
 [include]
     path = {{ .chezmoi.homeDir }}/.gitinclude
@@ -73,6 +73,6 @@
     path = ~/git/PrepperArmy/.gitconfig
 
 [pull]
-	ff = only
+    ff = only
 
 # vim: set ft=gitconfig:
