@@ -16,6 +16,7 @@ path=(
     ${HOME}/.platformio/penv/bin
     ${HOME}/.emacs/bin
     ${HOME}/.pyenv/bin
+    ${HOME}/.yarn/bin
     ${path}
     /usr/local/{bin,sbin}
 )
