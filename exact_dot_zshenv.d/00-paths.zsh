@@ -17,6 +17,7 @@ path=(
     ${HOME}/.emacs/bin
     ${HOME}/.pyenv/bin
     ${HOME}/.yarn/bin
+    ${HOME}/.yarn/global/node_modules/global/bin
     ${path}
     /usr/local/{bin,sbin}
 )
