@@ -4,4 +4,4 @@
   stripComponents = 1 # flatten archive
   exact = true
   refreshPeriod = "5s"
-  include = ["passport/tbot", "passport/tclt", "passport/tsh"]
+  include = ["tbot", "tclt", "tsh"]
