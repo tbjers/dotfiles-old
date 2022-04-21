@@ -1,0 +1,7 @@
+["bin/teleport"]
+  type = "archive"
+  url = "https://get.gravitational.com/teleport-v9.0.4-linux-amd64-bin.tar.gz"
+  stripComponents = 1 # flatten archive
+  exact = true
+  refreshPeriod = "5s"
+  include = ["passport/tbot", "passport/tclt", "passport/tsh"]
