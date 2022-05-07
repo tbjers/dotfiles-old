@@ -1,7 +1,9 @@
 ["bin/teleport"]
   type = "archive"
   url = "https://get.gravitational.com/teleport-v9.2.1-linux-amd64-bin.tar.gz"
+  stripComponents = 1
   exact = true
+  executable = true
   include = ["tbot", "tctl", "tsh"]
 ["bin/terraform"]
   type = "archive"
