@@ -3,7 +3,6 @@
   url = "https://get.gravitational.com/teleport-v9.0.4-linux-amd64-bin.tar.gz"
   stripComponents = 1
   exact = true
-  exclude = ["*"]
   include = ["tbot", "tclt", "tsh"]
 ["bin/terraform"]
   type = "archive"
