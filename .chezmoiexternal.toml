@@ -1,9 +1,8 @@
 ["bin/teleport"]
   type = "archive"
-  url = "https://get.gravitational.com/teleport-v9.0.4-linux-amd64-bin.tar.gz"
-  stripComponents = 1
+  url = "https://get.gravitational.com/teleport-v9.2.1-linux-amd64-bin.tar.gz"
   exact = true
-  include = ["tbot", "tclt", "tsh"]
+  include = ["tbot", "tctl", "tsh"]
 ["bin/terraform"]
   type = "archive"
   url = "https://releases.hashicorp.com/terraform/1.1.9/terraform_1.1.9_linux_amd64.zip"
