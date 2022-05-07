@@ -45,6 +45,9 @@ FPATH={{ .chezmoi.homeDir}}/.zsh_completions.d:$FPATH
 autoload -Uz compinit
 compinit
 
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C "${HOME}/bin/terraform/terraform" terraform
+
 # Editors
 export ALTERNATE_EDITOR=""
 

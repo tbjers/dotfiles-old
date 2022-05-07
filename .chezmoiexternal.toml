@@ -1,7 +1,26 @@
 ["bin/teleport"]
   type = "archive"
   url = "https://get.gravitational.com/teleport-v9.0.4-linux-amd64-bin.tar.gz"
-  stripComponents = 1 # flatten archive
+  stripComponents = 1
   exact = true
-  refreshPeriod = "5s"
+  exclude = ["examples/*"]
   include = ["tbot", "tclt", "tsh"]
+["bin/terraform"]
+  type = "archive"
+  url = "https://releases.hashicorp.com/terraform/1.1.9/terraform_1.1.9_linux_amd64.zip"
+  exact = true
+  executable = true
+  include = ["terraform"]
+["bin/terraform-ls"]
+  type = "archive"
+  url = "https://releases.hashicorp.com/terraform-ls/0.27.0/terraform-ls_0.27.0_linux_amd64.zip"
+  exact = true
+  executable = true
+  include = ["terraform-ls"]
+["bin/helm"]
+  type = "archive"
+  url = "https://get.helm.sh/helm-v3.8.2-linux-amd64.tar.gz"
+  stripComponents = 1
+  exact = true
+  executable = true
+  include = ["helm"]

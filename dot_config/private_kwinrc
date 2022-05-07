@@ -23,8 +23,14 @@ NoiseStrength=7
 [Effect-CubeSlide]
 RotationDuration=250
 
+[Effect-DesktopGrid]
+BorderActivate=3
+
 [Effect-DimInactive]
 Strength=10
+
+[Effect-MouseClick]
+ShowText=false
 
 [Effect-ShowFps]
 TextColor=170,0,0
@@ -51,8 +57,8 @@ glideEnabled=true
 kwin4_effect_dimscreenEnabled=true
 kwin4_effect_scaleEnabled=false
 kwin4_effect_translucencyEnabled=true
+mouseclickEnabled=true
 sheetEnabled=true
-slidebackEnabled=true
 thumbnailasideEnabled=true
 wobblywindowsEnabled=true
 
@@ -62,3 +68,6 @@ count=0
 
 [TabBox]
 LayoutName=thumbnail_grid
+
+[Windows]
+ElectricBorders=1
