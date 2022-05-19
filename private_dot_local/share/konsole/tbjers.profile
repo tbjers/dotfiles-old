@@ -2,7 +2,7 @@
 AntiAliasFonts=true
 BoldIntense=true
 ColorScheme=Gruvbox
-Font=NotoMono Nerd Font,12,-1,5,50,0,0,0,0,0
+Font=FantasqueSansMono Nerd Font,14,-1,5,50,0,0,0,0,0
 LineSpacing=0
 TabColor=24,25,29,0
 UseFontLineChararacters=true

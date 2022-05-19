@@ -4,23 +4,38 @@
   stripComponents = 1
   exact = true
   executable = true
-  include = ["teleport/tctl", "teleport/tbot", "teleport/tsh"]
+  include = ["*", "*/tsh", "*/tctl"]
+  refreshPeriod = "744h"
+
 ["bin/terraform"]
   type = "archive"
   url = "https://releases.hashicorp.com/terraform/1.1.9/terraform_1.1.9_linux_amd64.zip"
   exact = true
   executable = true
   include = ["terraform"]
+  refreshPeriod = "744h"
+
 ["bin/terraform-ls"]
   type = "archive"
   url = "https://releases.hashicorp.com/terraform-ls/0.27.0/terraform-ls_0.27.0_linux_amd64.zip"
   exact = true
   executable = true
   include = ["terraform-ls"]
+  refreshPeriod = "744h"
+
+["bin/packer"]
+  type = "archive"
+  url = "https://releases.hashicorp.com/packer/1.8.0/packer_1.8.0_linux_amd64.zip"
+  exact = true
+  executable = true
+  include = ["packer"]
+  refreshPeriod = "744h"
+
 ["bin/helm"]
   type = "archive"
   url = "https://get.helm.sh/helm-v3.8.2-linux-amd64.tar.gz"
   stripComponents = 1
   exact = true
   executable = true
-  include = ["helm"]
+  include = ["*", "*/helm"]
+  refreshPeriod = "744h"
