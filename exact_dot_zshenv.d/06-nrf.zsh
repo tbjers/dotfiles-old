@@ -9,4 +9,4 @@ if [ -d ${EMB_ROOT_PATH} ]; then
   PATH="${EMB_ROOT_PATH}/bin:${PATH}"
 fi
 
-. ${HOME}/ncs/zephyr/zephyr-env.sh
+. ${HOME}/ncs/zephyr/environment-setup-x86_64-pokysdk-linux

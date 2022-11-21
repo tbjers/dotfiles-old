@@ -72,11 +72,11 @@ slideEnabled=false
 thumbnailasideEnabled=true
 wobblywindowsEnabled=true
 
-[TabBox]
-LayoutName=thumbnail_grid
-
 [TabBoxAlternative]
 LayoutName=small_icons
 
 [Windows]
 ElectricBorders=1
+
+[org.kde.kdecoration2]
+theme=Breeze
